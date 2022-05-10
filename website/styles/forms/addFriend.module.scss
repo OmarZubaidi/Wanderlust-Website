@@ -1,0 +1,35 @@
+@import '../variables';
+
+.addFriendForm {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.maxPeople {
+  color: $mainPink;
+}
+
+.input_field {
+  border: 2px solid $inputBorderColor;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.addFriend {
+  margin-left: 15px;
+  margin-top: 25px;
+  display: block;
+  background: transparent;
+  background-image: url('../../public/assets/PlusButtonCyan.svg');
+  background-size: cover;
+  width: 35px;
+  height: 35px;
+  border-radius: 25px;
+  cursor: pointer;
+}
