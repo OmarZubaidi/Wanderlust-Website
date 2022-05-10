@@ -28,3 +28,5 @@ export const tripServiceCreateTrip = async (trip: CacheTrip): Promise<Trip> => {
     return error.message;
   }
 };
+
+export const tripServiceGetTripsByUser = () => {};

@@ -8,7 +8,14 @@ First, run the development server:
 npm run dev
 # or
 yarn dev
+
 ```
+
+## .env
+
+REACT_APP_DOMAIN=
+REACT_APP_CLIENT_ID=
+REACT_APP_SERVER_URL=
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
