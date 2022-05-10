@@ -1,0 +1,48 @@
+@import '../variables';
+
+.tripForm {
+  width: 700px;
+  height: 400px;
+  background-color: $inputFormBG;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+}
+.title {
+  align-self: start;
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+
+.input_row {
+  display: flex;
+  align-items: flex-end;
+}
+.input {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  margin: 20px;
+}
+
+.input_field {
+  border: 2px solid $inputBorderColor;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.button {
+  margin: 20px;
+}
+
+.continue {
+  background-color: $mainBlue;
+}
+
+.continue:hover {
+  background-color: $mainBlueHover;
+  cursor: pointer;
+}
