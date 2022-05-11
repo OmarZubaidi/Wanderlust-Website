@@ -13,7 +13,7 @@ export const TripNavigation: React.FC<Props> = ({ trip }) => {
     <div className={styles.container}>
       <div className={styles.navigationHeader + ' titleH2'}>
         <h2>{trip.destination}</h2>
-        <div>
+        <div className={styles.usersAvatar}>
           {trip.Users &&
             trip.Users.map((user) => (
               <div
@@ -30,11 +30,11 @@ export const TripNavigation: React.FC<Props> = ({ trip }) => {
       <nav>
         <ul className={styles.tripLinks}>
           <li className={styles.linkItem}>
-            <Link href={'/'}>
+            <Link href={`/dashboard/map/${trip.id}`}>
               <a>
                 <Image
-                  src='/assets/Calendar.svg'
-                  alt='Calendar Icon'
+                  src='/assets/Map.svg'
+                  alt='Map Icon'
                   width={35}
                   height={35}
                 />
@@ -42,11 +42,11 @@ export const TripNavigation: React.FC<Props> = ({ trip }) => {
             </Link>
           </li>
           <li className={styles.linkItem}>
-            <Link href={`/dashboard/map/${trip.id}`}>
+            <Link href={'/'}>
               <a>
                 <Image
-                  src='/assets/Map.svg'
-                  alt='Map Icon'
+                  src='/assets/Calendar.svg'
+                  alt='Calendar Icon'
                   width={35}
                   height={35}
                 />

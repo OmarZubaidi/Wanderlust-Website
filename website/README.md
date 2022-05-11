@@ -17,6 +17,11 @@ REACT_APP_DOMAIN=
 REACT_APP_CLIENT_ID=
 REACT_APP_SERVER_URL=
 
+## starting process
+
+1. start the server if you have it locally
+2. npm run dev in the website folder
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.

@@ -1,4 +1,7 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import React from 'react';
+import { DepartureFlightFormComponent } from '../../../components/forms/departureFlightFormComponent';
+import { Loading } from '../../../components/Loading';
 import { getAllTrips, getTrip } from '../../../services/dbService';
 import { Trip } from '../../../types/trip.type';
 
@@ -7,7 +10,14 @@ type Props = {
 };
 
 const FligthsForm: React.FC<Props> = ({ trip }) => {
-  return <main className='flightbg'>Departure</main>;
+  const { isLoading } = useAuth0();
+
+  if (isLoading) return <Loading />;
+  return (
+    <main className='flightbg'>
+      <DepartureFlightFormComponent />
+    </main>
+  );
 };
 
 export const getStaticPaths = async () => {

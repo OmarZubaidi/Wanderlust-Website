@@ -1,7 +1,7 @@
 import React from 'react';
 import { useUserContext } from '../../context/userContext';
 import { Trip } from '../../types/trip.type';
-import { FlightCard } from './fligths/flightCard';
+import { FlightCard } from './fligths/FlightCard';
 import styles from '../../styles/dashboard/flightOverview.module.scss';
 import Link from 'next/link';
 
