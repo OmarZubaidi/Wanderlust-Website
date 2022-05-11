@@ -20,8 +20,10 @@ import {
 import { AddFriendForm } from './friendsFormComponents/AddFriendForm';
 import { FinalizeTrip } from './friendsFormComponents/FinalizeTrip';
 import { AddedFriendsList } from './friendsFormComponents/AddedFriendsList';
+import { useUserContext } from '../../context/userContext';
 
 export const FriendsFormComponent: React.FC = () => {
+  const { userDb } = useUserContext();
   const router = useRouter();
   const [trip, setTrip] = useState<CacheTrip>(router.query as CacheTrip);
   const [emailFriend, setEmailFriend] = useState<string>('');
@@ -74,10 +76,8 @@ export const FriendsFormComponent: React.FC = () => {
   };
 
   const finalizeGroup = async (tripId: number) => {
-    await createUsersOnTrips(
-      tripId,
-      addedFriends.map((u) => u.id!)
-    );
+    const userIds = [userDb!.id, ...addedFriends.map((u) => u.id!)];
+    await createUsersOnTrips(tripId, userIds as number[]);
   };
 
   const finalize = async () => {

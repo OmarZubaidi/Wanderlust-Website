@@ -45,3 +45,17 @@ export const userServiceGetByEmail = async (
     return error.message;
   }
 };
+
+export const userServiceGetById = async (
+  id: number
+): Promise<User | string> => {
+  try {
+    const res = await fetch(serverUrl + `/users/${id}`);
+    const user = await res.json();
+    if (user.status === 404) throw new Error(user.message);
+    return user as User;
+  } catch (error: any) {
+    console.log(error.message);
+    return error.message;
+  }
+};

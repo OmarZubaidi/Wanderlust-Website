@@ -1,13 +1,26 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import { DashboardComponent } from '../../components/dashboard/DashboardComponent';
 import { NoTrip } from '../../components/dashboard/NoTrip';
+import { Loading } from '../../components/Loading';
+import { useUserContext } from '../../context/userContext';
 
 const Dashboard = () => {
-  return (
-    <DashboardComponent>
-      <NoTrip />
-    </DashboardComponent>
-  );
+  const { userDb, isFetching } = useUserContext();
+  const router = useRouter();
+
+  if (isFetching) return <Loading />;
+  if (userDb?.UsersOnTrips?.length) {
+    const tripId = userDb?.UsersOnTrips[0].tripId;
+    router.push(`/dashboard/map/${tripId}`);
+    return <Loading />;
+  } else {
+    return (
+      <DashboardComponent trips={[]}>
+        <NoTrip />
+      </DashboardComponent>
+    );
+  }
 };
 
 export default Dashboard;
