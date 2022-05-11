@@ -1,1 +1,54 @@
-import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
+import React, { useEffect, useState } from 'react';
+import { DashboardComponent } from '../../../components/dashboard/DashboardComponent';
+import { Loading } from '../../../components/Loading';
+import { getAllTrips, getTrip } from '../../../services/dbService';
+import { Trip } from '../../../types/trip.type';
+
+import { useUserContext } from '../../../context/userContext';
+import { TripNavigation } from '../../../components/dashboard/TripNavigation';
+import { FlightOverView } from '../../../components/dashboard/FlightOverView';
+
+type Props = {
+  trip: Trip;
+};
+const DashboardMap: React.FC<Props> = ({ trip }) => {
+  const { isLoading } = useAuth0();
+  const { userDb } = useUserContext();
+
+  if (isLoading) return <Loading />;
+  return (
+    <>
+      <DashboardComponent trips={userDb?.Trips!}>
+        <div>
+          <TripNavigation trip={trip} />
+          <FlightOverView trip={trip} />
+        </div>
+      </DashboardComponent>
+    </>
+  );
+};
+
+export const getStaticPaths = async () => {
+  const trips = await getAllTrips();
+  const paths = trips.map((trip) => ({
+    params: { tripId: trip.id?.toString() },
+  }));
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps = async ({ params }: any) => {
+  const id = params.tripId;
+  const trip = await getTrip(+id);
+
+  return {
+    props: {
+      trip,
+    },
+  };
+};
+
+export default DashboardMap;

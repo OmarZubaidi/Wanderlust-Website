@@ -194,6 +194,9 @@ p {
   color: red;
 }
 
-.map {
-  width: 100%;
+#map {
+  width: calc(100% - 20px);
+  height: calc(100% - 120px);
+  margin-left: auto;
+  border-radius: 20px;
 }

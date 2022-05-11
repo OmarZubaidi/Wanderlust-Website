@@ -8,10 +8,12 @@ import { useUserContext } from '../../context/userContext';
 const Dashboard = () => {
   const { userDb, isFetching } = useUserContext();
   const router = useRouter();
+  console.log(userDb);
 
   if (isFetching) return <Loading />;
-  if (userDb?.UsersOnTrips?.length) {
-    const tripId = userDb?.UsersOnTrips[0].tripId;
+
+  if (userDb?.Trips?.length) {
+    const tripId = userDb?.Trips[0].id;
     router.push(`/dashboard/map/${tripId}`);
     return <Loading />;
   } else {

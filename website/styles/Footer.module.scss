@@ -12,6 +12,10 @@
   display: flex;
 }
 
+.footer_links li:first-of-type a {
+  border-left: none;
+}
+
 .footer_link {
   padding: 0 10px;
   font-size: 14px;
