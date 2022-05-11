@@ -30,5 +30,8 @@
     "commitizen": {
       "path": "./node_modules/cz-changelog"
     }
+  },
+  "dependencies": {
+    "@tomtom-international/web-sdk-maps": "^6.18.0"
   }
 }

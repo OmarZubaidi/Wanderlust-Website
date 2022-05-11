@@ -1,7 +1,7 @@
 import { EventType } from './event.type';
 import { Flight } from './flight.type';
 import { Hotel } from './hotel.type';
-import { UsersOnTrips } from './usersOnTrips.type';
+import { User } from './user.type';
 
 export interface Trip {
   id?: number;
@@ -11,6 +11,6 @@ export interface Trip {
   Hotels?: Hotel[];
   Flights?: Flight[];
   Events?: EventType[]; // ts didn't like Event as a name
-  UsersOnTrips?: UsersOnTrips[];
+  Users?: User[];
   createdAt?: Date;
 }

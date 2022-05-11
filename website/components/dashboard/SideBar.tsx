@@ -1,12 +1,18 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
 import styles from '../../styles/dashboard/SideBar.module.scss';
+import { Trip } from '../../types/trip.type';
 import {
   deleteCachedAddedFriends,
   deleteCachedTrip,
 } from '../../utils/localStorage';
 
-export const SideBar: React.FC = () => {
+type Props = {
+  trips: Trip[];
+};
+
+export const SideBar: React.FC<Props> = ({ trips }) => {
   const router = useRouter();
 
   const navigateToTripForm = () => {
@@ -26,31 +32,17 @@ export const SideBar: React.FC = () => {
       </div>
       <input type='text' className={styles.trip_search} />
       <ul className={styles.trips}>
-        {/* <li>
-          <Link href={'/'}>
-            <a className={styles.trip}>Fake trip</a>
-          </Link>
-        </li>
-        <li>
-          <Link href={'/'}>
-            <a className={styles.trip}>Fake trip</a>
-          </Link>
-        </li>
-        <li>
-          <Link href={'/'}>
-            <a className={styles.trip}>Fake trip</a>
-          </Link>
-        </li>
-        <li>
-          <Link href={'/'}>
-            <a className={styles.trip}>Fake trip</a>
-          </Link>
-        </li>
-        <li>
-          <Link href={'/'}>
-            <a className={styles.trip}>Fake trip</a>
-          </Link>
-        </li> */}
+        {trips &&
+          trips.map((trip) => (
+            <li key={trip.id}>
+              <Link href={`/dashboard/map/${trip.id}`}>
+                <a className={styles.trip}>
+                  {trip.destination}
+                  {trip.id}
+                </a>
+              </Link>
+            </li>
+          ))}
       </ul>
     </div>
   );

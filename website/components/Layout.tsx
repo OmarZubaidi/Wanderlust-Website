@@ -12,7 +12,7 @@ export const Layout: React.FC<Props> = ({ children }) => {
 
   return (
     <>
-      <Navbar logged={!!user} />
+      <Navbar />
       {children}
       <Footer logged={!!user} />
     </>

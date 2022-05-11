@@ -1,6 +1,7 @@
 import '../styles/globals.scss';
 import type { AppProps } from 'next/app';
 import { AppWrapper } from '../components/AppWrapper';
+import { UserProvider } from '../context/userContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -8,7 +9,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       domain_env={process.env.DOMAIN!}
       clientId_env={process.env.CLIENT_ID!}
     >
-      <Component {...pageProps} />
+      <UserProvider>
+        <Component {...pageProps} />
+      </UserProvider>
     </AppWrapper>
   );
 }

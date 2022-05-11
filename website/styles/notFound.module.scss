@@ -1,0 +1,25 @@
+@import 'variables';
+
+.notFound {
+  display: flex;
+  width: 100vw;
+  height: 90vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 50px;
+  color: $darkTextColor;
+  font-weight: 700;
+}
+
+.text {
+  font-size: 20px;
+}
+
+.homeLink {
+  display: inline;
+  color: $mainBlue;
+}

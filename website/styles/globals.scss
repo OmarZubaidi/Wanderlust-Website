@@ -193,3 +193,10 @@ p {
   font-size: 12px;
   color: red;
 }
+
+#map {
+  width: calc(100% - 20px);
+  height: calc(100% - 120px);
+  margin-left: auto;
+  border-radius: 20px;
+}

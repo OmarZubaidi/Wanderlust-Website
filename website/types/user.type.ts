@@ -1,5 +1,6 @@
 import { Flight } from './flight.type';
 import { Hotel } from './hotel.type';
+import { Trip } from './trip.type';
 import { UsersOnTrips } from './usersOnTrips.type';
 
 export interface User {
@@ -13,5 +14,5 @@ export interface User {
   createdAt?: Date;
   Hotels?: Hotel[];
   Flights?: Flight[];
-  UsersOnTrips?: UsersOnTrips[];
+  Trips?: Trip[];
 }

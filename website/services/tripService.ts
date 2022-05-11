@@ -20,9 +20,32 @@ export const tripServiceCreateTrip = async (trip: CacheTrip): Promise<Trip> => {
     });
 
     const newTrip = await response.json();
-    console.log('RESPONSE', newTrip);
     if (newTrip.status === 404) throw new Error(newTrip.message);
     return newTrip as Trip;
+  } catch (error: any) {
+    console.log(error.message);
+    return error.message;
+  }
+};
+
+export const tripServiceGetTrip = async (tripId: number): Promise<Trip> => {
+  try {
+    const response = await fetch(serverUrl + `/trips/${tripId}`);
+    const data = await response.json();
+    if (data.status === 404) throw new Error(data.message);
+    return data as Trip;
+  } catch (error: any) {
+    console.log(error.message);
+    return error.message;
+  }
+};
+
+export const tripServicegetAllTrips = async (): Promise<Trip[]> => {
+  try {
+    const response = await fetch(serverUrl + '/trips');
+    const data = await response.json();
+    if (data.status === 404) throw new Error(data.message);
+    return data as Trip[];
   } catch (error: any) {
     console.log(error.message);
     return error.message;

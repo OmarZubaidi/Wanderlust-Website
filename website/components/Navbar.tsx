@@ -3,14 +3,12 @@ import styles from '../styles/Navbar.module.scss';
 import Link from 'next/link';
 import { useAuth0 } from '@auth0/auth0-react';
 
-type NavbarProos = {
-  logged: boolean;
-};
-
-export const Navbar: React.FC<NavbarProos> = ({ logged }) => {
+export const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false);
-  const { loginWithRedirect, logout, user } = useAuth0();
+  const { loginWithRedirect, logout, user, isLoading } = useAuth0();
   const show = open ? 'show' : undefined;
+
+  if (isLoading) return <></>;
 
   return (
     <div className={styles.navbar_container}>
@@ -20,7 +18,7 @@ export const Navbar: React.FC<NavbarProos> = ({ logged }) => {
             <a>Wanderlust</a>
           </Link>
         </h1>
-        {logged ? (
+        {user ? (
           <div className='buttons'>
             <div className={`avatar_dropdown ${show}`}>
               <Link href={'/'}>
