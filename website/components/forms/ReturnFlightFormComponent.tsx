@@ -1,18 +1,18 @@
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
+import { format } from 'date-fns';
 import styles from '../../styles/forms/departureFlightForm.module.scss';
+import { Flight } from '../../types/flight.type';
 import { TripProps } from '../../types/tripProp';
 import { flightOffersSearch } from '../../utils/amadeus';
 import { citycode } from '../../utils/citycodes';
-import { format } from 'date-fns';
-import { Flight } from '../../types/flight.type';
 import { parseFlights } from '../../utils/flightParser';
 import { cacheFlight } from '../../utils/localStorage';
-import { useRouter } from 'next/router';
+import { FlightBookingList } from './flightFormComponents/FlightBookingList';
 import { FlightFormHeader } from './flightFormComponents/FlightFormHeader';
 import { FlightInputHeader } from './flightFormComponents/FlightInputHeader';
-import { FlightBookingList } from './flightFormComponents/FlightBookingList';
 
-export const DepartureFlightFormComponent: React.FC<TripProps> = ({ trip }) => {
+export const ReturnFlightFormComponent: React.FC<TripProps> = ({ trip }) => {
   const router = useRouter();
   const [originCity, setOriginCity] = useState('');
   const [departure, setDeparture] = useState('');
@@ -50,15 +50,15 @@ export const DepartureFlightFormComponent: React.FC<TripProps> = ({ trip }) => {
 
   const goToReturnFlight = () => {
     cacheFlight(selectedFlight!);
-    router.push(`/trip/flight/return/${trip.id}`);
+    router.push(`/trip/return/${trip.id}`);
   };
 
   return (
     <section className={styles.container}>
       <FlightFormHeader
+        title={'Return'}
         departure={departure}
         destination={trip.destination}
-        title={'Departure'}
       />
 
       <FlightInputHeader

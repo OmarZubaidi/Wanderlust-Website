@@ -3,6 +3,7 @@ import React from 'react';
 import { Trip } from '../../types/trip.type';
 import styles from '../../styles/dashboard/TripNavigation.module.scss';
 import Image from 'next/image';
+import { deleteCachedFlight } from '../../utils/localStorage';
 
 type Props = {
   trip: Trip;
@@ -55,7 +56,7 @@ export const TripNavigation: React.FC<Props> = ({ trip }) => {
           </li>
           <li className={styles.linkItem}>
             <Link href={`/dashboard/flight/${trip.id}`}>
-              <a>
+              <a onClick={() => deleteCachedFlight()}>
                 <Image
                   src='/assets/Plane.svg'
                   alt='Flight Icon'

@@ -1,5 +1,5 @@
+import { Flight } from '../types/flight.type';
 import { User } from '../types/user.type';
-import { isSSR } from './isSSR';
 export type CacheTrip = {
   startDate: string;
   endDate: string;
@@ -30,4 +30,17 @@ export const deleteCachedTrip = () => {
 
 export const deleteCachedAddedFriends = () => {
   window.localStorage.setItem('addedFriends', JSON.stringify(null));
+};
+
+export const cacheFlight = (flight: Flight) => {
+  window.localStorage.setItem('departureFlight', JSON.stringify(flight));
+};
+
+export const getCachedFlight = () => {
+  const flight = window.localStorage.getItem('departureFlight');
+  return JSON.parse(flight!);
+};
+
+export const deleteCachedFlight = () => {
+  window.localStorage.setItem('departureFlight', JSON.stringify(null));
 };

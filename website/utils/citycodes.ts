@@ -1,4 +1,8 @@
-export const citycode = {
+type citycodeType = {
+  [key: string]: string;
+};
+
+export const citycode: citycodeType = {
   barcelona: 'BCN',
   london: 'LON',
   paris: 'PAR',

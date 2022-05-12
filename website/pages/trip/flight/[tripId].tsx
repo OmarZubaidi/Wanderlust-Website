@@ -3,19 +3,15 @@ import React from 'react';
 import { DepartureFlightFormComponent } from '../../../components/forms/departureFlightFormComponent';
 import { Loading } from '../../../components/Loading';
 import { getAllTrips, getTrip } from '../../../services/dbService';
-import { Trip } from '../../../types/trip.type';
+import { TripProps } from '../../../types/tripProp';
 
-type Props = {
-  trip: Trip;
-};
-
-const FligthsForm: React.FC<Props> = ({ trip }) => {
+const FligthsForm: React.FC<TripProps> = ({ trip }) => {
   const { isLoading } = useAuth0();
 
   if (isLoading) return <Loading />;
   return (
     <main className='flightbg'>
-      <DepartureFlightFormComponent />
+      <DepartureFlightFormComponent trip={trip} />
     </main>
   );
 };
