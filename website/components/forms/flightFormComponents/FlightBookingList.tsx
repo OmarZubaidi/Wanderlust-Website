@@ -23,7 +23,6 @@ export const FlightBookingList: React.FC<Props> = ({
           selected={selectedFlight?.flightApiId === flight.flightApiId}
           bookFlight={bookFlight}
           flight={flight}
-          trip={trip}
           key={flight.flightApiId}
         />
       ))}

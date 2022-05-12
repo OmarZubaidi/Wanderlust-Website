@@ -1,24 +1,22 @@
 import React from 'react';
-import trip from '../../../pages/trip';
 import styles from '../../../styles/forms/departureFlightForm.module.scss';
-import { Flight } from '../../../types/flight.type';
-import { TripProps } from '../../../types/tripProp';
+import { Flight, Itinerary } from '../../../types/flight.type';
 import { format } from 'date-fns';
 import Image from 'next/image';
 
-type BookingCard = TripProps & {
+type BookingCard = {
   flight: Flight;
   bookFlight: (flight: Flight) => void;
   selected: boolean;
 };
 
 export const FlightBookingCard: React.FC<BookingCard> = ({
-  trip,
   flight,
   bookFlight,
   selected,
 }) => {
   const green = selected ? styles.selected : undefined;
+  const itineraries: Itinerary[] = JSON.parse(flight.itineraries);
   return (
     <li
       onClick={() => {
@@ -27,11 +25,11 @@ export const FlightBookingCard: React.FC<BookingCard> = ({
       className={styles.flight + ' ' + green}
     >
       <div className={styles.date}>
-        <h2>{format(new Date(flight.itineraries[0].departure), 'dd')}</h2>
-        <h3>{format(new Date(flight.itineraries[0].departure), 'MMM')}</h3>
+        <h2>{format(new Date(itineraries[0].departure), 'dd')}</h2>
+        <h3>{format(new Date(itineraries[0].departure), 'MMM')}</h3>
       </div>
       <div className={styles.segments}>
-        {flight.itineraries.map((segment, i) => (
+        {itineraries.map((segment, i) => (
           <div className={styles.segment} key={i}>
             <div className={styles.infoSegment}>
               <h2>{format(new Date(segment.departure), 'HH:mm')}</h2>

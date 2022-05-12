@@ -16,10 +16,10 @@ export interface Flight {
   UsersOnFlights?: UsersOnFlights[];
   Users?: User[];
   createdAt?: Date;
-  itineraries: itinerary[];
+  itineraries: string;
 }
 
-type itinerary = {
+export type Itinerary = {
   depAirport: string;
   arrAirport: string;
   depTerminal?: string;

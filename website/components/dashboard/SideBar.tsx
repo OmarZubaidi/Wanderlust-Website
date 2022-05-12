@@ -36,10 +36,7 @@ export const SideBar: React.FC<Props> = ({ trips }) => {
           trips.map((trip) => (
             <li key={trip.id}>
               <Link href={`/dashboard/map/${trip.id}`}>
-                <a className={styles.trip}>
-                  {trip.destination}
-                  {trip.id}
-                </a>
+                <a className={styles.trip}>{trip.destination}</a>
               </Link>
             </li>
           ))}

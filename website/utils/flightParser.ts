@@ -19,7 +19,7 @@ export const parseFlights = (
       flightApiId: flight.id,
       price: flight.price.total + flight.price.currency,
       lengthOfFlight: flight.itineraries[0].duration,
-      itineraries,
+      itineraries: JSON.stringify(itineraries),
       departureCity,
       arrivalCity,
     };

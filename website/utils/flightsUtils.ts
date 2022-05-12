@@ -4,7 +4,7 @@ import {
   createUsersFlightTripsConnection,
   getFlightByApiId,
 } from '../services/dbService';
-import { Flight } from '../types/flight.type';
+import { Flight, Itinerary } from '../types/flight.type';
 
 export const checkIfFlightIsOnTrip = (
   flight: Flight,
@@ -12,13 +12,17 @@ export const checkIfFlightIsOnTrip = (
   flightToBook: Flight
 ) => {
   for (let entry of flight.UsersOnFlights!) {
+    const itineraries: Itinerary[] = JSON.parse(flight.itineraries as string);
+    const toBookItineraries: Itinerary[] = JSON.parse(
+      flightToBook.itineraries as string
+    );
     if (
       entry.tripId === tripId &&
       flight.departureCity === flightToBook.departureCity &&
       flight.arrivalCity === flightToBook.arrivalCity &&
       flight.lengthOfFlight === flightToBook.lengthOfFlight &&
       flight.price === flightToBook.price &&
-      flight.itineraries[0].arrival === flightToBook.itineraries[0].arrival
+      itineraries[0].arrival === toBookItineraries[0].arrival
     ) {
       return true;
     }
@@ -33,16 +37,21 @@ export const bookGroupFlights = async (
   userId: number
 ) => {
   const flights = await getFlightByApiId(apiId);
-  flights.forEach(async (flight) => {
+  for (let flight of flights) {
     if (checkIfFlightIsOnTrip(flight, tripId, flightToBook)) {
-      const response = await createUsersFlightTripsConnection(
-        flight.id!,
+      console.log({
+        flightId: flight.id!,
         tripId,
-        userId
+        userId,
+      });
+      const response = await createUsersFlightTripsConnection(
+        userId,
+        flight.id!,
+        tripId
       );
       return typeof response !== 'string';
     }
-  });
+  }
   return false;
 };
 

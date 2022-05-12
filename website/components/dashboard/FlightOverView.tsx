@@ -10,11 +10,13 @@ type Props = {
 };
 
 export const FlightOverView: React.FC<Props> = ({ trip }) => {
-  const { userDb } = useUserContext();
+  const { userDb, isFetching } = useUserContext();
 
-  const needFlight = trip.Flights!.some((flight) =>
-    flight.Users?.some((user) => user.id === userDb!.id)
-  );
+  const needFlight = trip.Flights!.some((flight) => {
+    if (!isFetching) {
+      return flight.Users?.some((user) => user.id === userDb!.id);
+    }
+  });
 
   const bookFlight = !needFlight ? (
     <div className={styles.bookContainer}>
@@ -32,7 +34,7 @@ export const FlightOverView: React.FC<Props> = ({ trip }) => {
       <div>
         <h2>Group flights</h2>
         <p>Here you can see all the flights of the group:</p>
-        <ul>
+        <ul className={styles.flightList}>
           {trip.Flights?.map((flight) => (
             <FlightCard key={flight.id} flight={flight} />
           ))}

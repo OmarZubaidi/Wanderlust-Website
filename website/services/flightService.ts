@@ -22,7 +22,10 @@ export const flightServiceCreateFlight = async (flight: Flight) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(flight),
+      body: JSON.stringify({
+        ...flight,
+        itineraries: JSON.parse(flight.itineraries),
+      }),
     });
     const data = await response.json();
     if (data.status === 404) throw new Error(data.message);
