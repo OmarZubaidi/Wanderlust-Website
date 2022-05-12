@@ -7,6 +7,7 @@ type Props = {
   setOriginCity: (value: string) => void;
   budget: string;
   setBudget: (value: string) => void;
+  placeholder: string;
 };
 
 export const FlightInputHeader: React.FC<Props> = ({
@@ -15,6 +16,7 @@ export const FlightInputHeader: React.FC<Props> = ({
   setOriginCity,
   budget,
   setBudget,
+  placeholder,
 }) => {
   return (
     <div className={styles.inputHeader}>
@@ -23,7 +25,7 @@ export const FlightInputHeader: React.FC<Props> = ({
           className={styles.input_field}
           type='text'
           id='origin'
-          placeholder='From...'
+          placeholder={placeholder}
           value={originCity}
           onChange={(e) => setOriginCity(e.target.value)}
         />

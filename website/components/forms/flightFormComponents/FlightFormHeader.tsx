@@ -15,7 +15,7 @@ export const FlightFormHeader: React.FC<Props> = ({
   return (
     <div className={styles.flightFormHeader}>
       <h2 className={'titleH2 ' + styles.title}>{title}</h2>
-      {departure && (
+      {departure && destination && (
         <h2 className={styles.itinerary}>
           {departure} to {destination}
         </h2>

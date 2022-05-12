@@ -1,7 +1,7 @@
 export interface UsersOnFlights {
-  id: number;
+  id?: number;
   userId: number;
   flightId: number;
   tripId: number;
-  createdAt: Date;
+  createdAt?: Date;
 }

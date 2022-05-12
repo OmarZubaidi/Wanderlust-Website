@@ -11,10 +11,12 @@ import { useRouter } from 'next/router';
 import { FlightFormHeader } from './flightFormComponents/FlightFormHeader';
 import { FlightInputHeader } from './flightFormComponents/FlightInputHeader';
 import { FlightBookingList } from './flightFormComponents/FlightBookingList';
+import { useUserContext } from '../../context/userContext';
 
 export const DepartureFlightFormComponent: React.FC<TripProps> = ({ trip }) => {
   const router = useRouter();
-  const [originCity, setOriginCity] = useState('');
+  const { userDb } = useUserContext();
+  const [originCity, setOriginCity] = useState(userDb?.origin || '');
   const [departure, setDeparture] = useState('');
   const [budget, setBudget] = useState('500');
   const [flights, setFlights] = useState<Flight[]>([]);
@@ -26,7 +28,7 @@ export const DepartureFlightFormComponent: React.FC<TripProps> = ({ trip }) => {
       !originLocationCode ||
       originCity.toLowerCase() === trip.destination.toLowerCase()
     ) {
-      return; // TODO set Error
+      return; // TODO set Error and loading
     }
     const destinationLocationCode = citycode[trip.destination.toLowerCase()];
     const departureDate = format(new Date(trip.start), 'yyyy-MM-dd');
@@ -67,6 +69,7 @@ export const DepartureFlightFormComponent: React.FC<TripProps> = ({ trip }) => {
         setOriginCity={setOriginCity}
         setBudget={setBudget}
         budget={budget}
+        placeholder={'From...'}
       />
 
       <FlightBookingList

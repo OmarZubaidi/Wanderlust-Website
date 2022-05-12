@@ -27,8 +27,8 @@ export const FlightBookingCard: React.FC<BookingCard> = ({
       className={styles.flight + ' ' + green}
     >
       <div className={styles.date}>
-        <h2>{format(new Date(trip.start), 'dd')}</h2>
-        <h3>{format(new Date(trip.start), 'MMM')}</h3>
+        <h2>{format(new Date(flight.itineraries[0].departure), 'dd')}</h2>
+        <h3>{format(new Date(flight.itineraries[0].departure), 'MMM')}</h3>
       </div>
       <div className={styles.segments}>
         {flight.itineraries.map((segment, i) => (
