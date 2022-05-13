@@ -1,35 +1,35 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import styles from '../../../styles/forms/departureFlightForm.module.scss';
 import { Flight, Itinerary } from '../../../types/flight.type';
-import styles from '../../../styles/dashboard/flightOverview.module.scss';
 import { format } from 'date-fns';
 import Image from 'next/image';
 
-type Props = {
+type BookingCard = {
   flight: Flight;
+  bookFlight: (flight: Flight) => void;
+  selected: boolean;
 };
 
-export const FlightCard: React.FC<Props> = ({ flight }) => {
-  const userList = flight.Users?.map((user) => (
-    <div
-      key={user.id}
-      style={{
-        backgroundImage: `url(${user.pictureUrl})`,
-        backgroundSize: 'contain',
-      }}
-      className={'avatar ' + styles.flightUser}
-    ></div>
-  ));
+export const FlightBookingCard: React.FC<BookingCard> = ({
+  flight,
+  bookFlight,
+  selected,
+}) => {
+  const green = selected ? styles.selected : undefined;
   const itineraries: Itinerary[] = JSON.parse(flight.itineraries);
-
   return (
-    <li className={styles.flightCard}>
-      <div className={styles.flightInfo}>
-        <h2>{flight.departureCity}</h2>
-        <div className={styles.line}></div>
-        <h2>{flight.arrivalCity}</h2>
+    <li
+      onClick={() => {
+        bookFlight(flight);
+      }}
+      className={styles.flight + ' ' + green}
+    >
+      <div className={styles.date}>
+        <h2>{format(new Date(itineraries[0].departure), 'dd')}</h2>
+        <h3>{format(new Date(itineraries[0].departure), 'MMM')}</h3>
       </div>
       <div className={styles.segments}>
-        {itineraries.map((segment: Itinerary, i: number) => (
+        {itineraries.map((segment, i) => (
           <div className={styles.segment} key={i}>
             <div className={styles.infoSegment}>
               <h2>{format(new Date(segment.departure), 'HH:mm')}</h2>
@@ -45,7 +45,7 @@ export const FlightCard: React.FC<Props> = ({ flight }) => {
           </div>
         ))}
       </div>
-      <div className={styles.userList}>{userList}</div>
+      <div className={styles.flightPrice}>{flight.price}</div>
     </li>
   );
 };

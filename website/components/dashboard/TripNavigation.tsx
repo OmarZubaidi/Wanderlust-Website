@@ -3,6 +3,7 @@ import React from 'react';
 import { Trip } from '../../types/trip.type';
 import styles from '../../styles/dashboard/TripNavigation.module.scss';
 import Image from 'next/image';
+import { deleteCachedFlight } from '../../utils/localStorage';
 
 type Props = {
   trip: Trip;
@@ -13,7 +14,7 @@ export const TripNavigation: React.FC<Props> = ({ trip }) => {
     <div className={styles.container}>
       <div className={styles.navigationHeader + ' titleH2'}>
         <h2>{trip.destination}</h2>
-        <div>
+        <div className={styles.usersAvatar}>
           {trip.Users &&
             trip.Users.map((user) => (
               <div
@@ -30,18 +31,6 @@ export const TripNavigation: React.FC<Props> = ({ trip }) => {
       <nav>
         <ul className={styles.tripLinks}>
           <li className={styles.linkItem}>
-            <Link href={'/'}>
-              <a>
-                <Image
-                  src='/assets/Calendar.svg'
-                  alt='Calendar Icon'
-                  width={35}
-                  height={35}
-                />
-              </a>
-            </Link>
-          </li>
-          <li className={styles.linkItem}>
             <Link href={`/dashboard/map/${trip.id}`}>
               <a>
                 <Image
@@ -54,8 +43,20 @@ export const TripNavigation: React.FC<Props> = ({ trip }) => {
             </Link>
           </li>
           <li className={styles.linkItem}>
-            <Link href={`/dashboard/flight/${trip.id}`}>
+            <Link href={'/'}>
               <a>
+                <Image
+                  src='/assets/Calendar.svg'
+                  alt='Calendar Icon'
+                  width={35}
+                  height={35}
+                />
+              </a>
+            </Link>
+          </li>
+          <li className={styles.linkItem}>
+            <Link href={`/dashboard/flight/${trip.id}`}>
+              <a onClick={() => deleteCachedFlight()}>
                 <Image
                   src='/assets/Plane.svg'
                   alt='Flight Icon'

@@ -8,7 +8,6 @@ import { useUserContext } from '../../context/userContext';
 const Dashboard = () => {
   const { userDb, isFetching } = useUserContext();
   const router = useRouter();
-  console.log(userDb);
 
   if (isFetching) return <Loading />;
 

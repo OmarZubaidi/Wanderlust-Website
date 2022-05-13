@@ -18,3 +18,70 @@
   background-color: $mainPink;
   margin-top: 20px;
 }
+
+.flightList {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.flightInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.userList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flightCard {
+  border: 1px solid $mainBlue;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 15px;
+}
+.flightUser {
+  margin-top: 10px;
+  width: 25px;
+  height: 25px;
+}
+.line {
+  height: 1px;
+  width: 30px;
+  margin: 0 10px;
+  background-color: $inputBorderColor;
+}
+
+.segments {
+  width: 100%;
+  margin-top: 20px;
+  .line {
+    height: 1px;
+    background-color: $inputBorderColor;
+    width: 100%;
+    margin: 0 10px;
+  }
+}
+
+.segment {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.infoSegment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    font-size: 20px;
+    font-weight: 400;
+  }
+  h3 {
+    font-size: 14px;
+  }
+}

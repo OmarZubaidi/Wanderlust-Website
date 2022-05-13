@@ -1,3 +1,6 @@
+import { User } from './user.type';
+import { UsersOnHotels } from './usersOnHotels.type';
+
 export interface Hotel {
   id: number;
   name: string;
@@ -8,7 +11,7 @@ export interface Hotel {
   nights: number;
   priceTotal: string;
   hotelApiId: number;
-  userId: number;
-  tripId: number;
   createdAt: Date;
+  UsersOnHotels?: UsersOnHotels[];
+  Users?: User[];
 }

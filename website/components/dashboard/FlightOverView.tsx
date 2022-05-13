@@ -1,7 +1,7 @@
 import React from 'react';
 import { useUserContext } from '../../context/userContext';
 import { Trip } from '../../types/trip.type';
-import { FlightCard } from './fligths/flightCard';
+import { FlightCard } from './fligths/FlightCard';
 import styles from '../../styles/dashboard/flightOverview.module.scss';
 import Link from 'next/link';
 
@@ -10,18 +10,23 @@ type Props = {
 };
 
 export const FlightOverView: React.FC<Props> = ({ trip }) => {
-  const { userDb } = useUserContext();
+  const { userDb, isFetching } = useUserContext();
 
-  const bookFlight =
-    userDb?.Flights?.length === 0 ? (
-      <div className={styles.bookContainer}>
-        <h2 className={styles.bookTitle}>You didn't book a flight yet</h2>
-        <p>To see flight recommendations, click here</p>
-        <button className={'button ' + styles.flightButton}>
-          <Link href={`/trip/flight/${trip.id}`}>Flights</Link>
-        </button>
-      </div>
-    ) : undefined;
+  const needFlight = trip.Flights!.some((flight) => {
+    if (!isFetching) {
+      return flight.Users?.some((user) => user.id === userDb!.id);
+    }
+  });
+
+  const bookFlight = !needFlight ? (
+    <div className={styles.bookContainer}>
+      <h2 className={styles.bookTitle}>You didn't book a flight yet</h2>
+      <p>To see flight recommendations, click here</p>
+      <button className={'button ' + styles.flightButton}>
+        <Link href={`/trip/flight/${trip.id}`}>Flights</Link>
+      </button>
+    </div>
+  ) : undefined;
 
   return (
     <div className={styles.container}>
@@ -29,10 +34,9 @@ export const FlightOverView: React.FC<Props> = ({ trip }) => {
       <div>
         <h2>Group flights</h2>
         <p>Here you can see all the flights of the group:</p>
-        <ul>
-          <FlightCard />
+        <ul className={styles.flightList}>
           {trip.Flights?.map((flight) => (
-            <FlightCard />
+            <FlightCard key={flight.id} flight={flight} />
           ))}
         </ul>
       </div>
