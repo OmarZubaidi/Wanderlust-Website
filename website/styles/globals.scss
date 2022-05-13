@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+@import 'variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.5;
+  font-family: 'Inter', sans-serif;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+input[type='radio'],
+select,
+input[type='submit'] {
+  cursor: pointer;
+  outline: none;
+}
+
+/* This is useful when implementing a grid system so that all image elements
+will take up 100% width of their containers */
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  display: block;
+  color: $darkTextColor;
+  text-decoration: none;
+}
+
+.button {
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  color: $white;
+  font-weight: 600;
+}
+
+.login_button {
+  background-color: $mainBlue;
+  transition: all 300ms ease;
+
+  &:hover {
+    background-color: $mainBlueHover;
+    cursor: pointer;
+  }
+}
+
+.signup_button {
+  background-color: $mainPink;
+  margin-left: 15px;
+  transition: all 300ms ease;
+
+  &:hover {
+    background-color: $mainPinkHover;
+    cursor: pointer;
+  }
+}
+
+.titleH2 {
+  color: $darkTextColor;
+  font-weight: 700;
+  font-size: 36px;
+  margin-bottom: 5px;
+}
+
+.titleH3 {
+  color: $white;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+p {
+  color: $darkTextColor;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.avatar_dropdown {
+  position: absolute;
+  display: flex;
+  opacity: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 120px;
+  height: 100px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: $dropdownBG;
+  top: 45px;
+  right: 0px;
+  transition: opacity 200ms ease;
+}
+.show {
+  opacity: 1;
+}
+.avatar_dropdown a {
+  color: $white;
+  padding: 10px;
+}
+#logout_button {
+  border-top: solid $inputBorderColor 0.8px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.footerPosition {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.tripbg {
+  background-image: url('../public/assets/tripFormbg.jpg');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+}
+
+.friendsbg {
+  background-image: url('../public/assets/friendsbg.jpg');
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+}
+
+.flightbg {
+  background-image: url('../public/assets/flightbg.jpg');
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+}
+
+.hotelbg {
+  background-image: url('../public/assets/hotelbg.jpg');
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+}
+
+.error {
+  font-size: 12px;
+  color: red;
+}
+
+#map {
+  width: calc(100% - 20px);
+  height: calc(100% - 120px);
+  margin-left: auto;
+  border-radius: 20px;
+}

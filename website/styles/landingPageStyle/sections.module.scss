@@ -1,0 +1,64 @@
+@import '../mixins';
+
+.sections {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.section {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.pin_img {
+  background-image: url('../../public/assets/Barcelona.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 200px;
+  margin-top: 30px;
+  margin-left: 100px;
+}
+
+.sign_buttons {
+  margin-top: 20px;
+}
+
+.phone_img {
+  background-image: url('../../public/assets/London.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 350px;
+  width: 250px;
+  margin-top: 30px;
+  display: none;
+  margin-right: 100px;
+}
+
+.store_buttons {
+  margin-top: 20px;
+  display: flex;
+  width: 200px;
+}
+
+.store_button {
+  margin-right: 15px;
+}
+
+@include desktop() {
+  .section {
+    flex-direction: row;
+  }
+  .section_text {
+    width: 50%;
+  }
+  .phone_img {
+    display: block;
+  }
+}

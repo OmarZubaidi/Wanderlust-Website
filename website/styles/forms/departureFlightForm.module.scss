@@ -1,0 +1,149 @@
+@import '../variables';
+
+.container {
+  width: 800px;
+  min-height: 500px;
+  background-color: $inputFormBG;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.flightFormHeader {
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.continue {
+  background-color: transparent;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-top: 20px;
+}
+
+.inputHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+.itinerary {
+  font-size: 20px;
+  margin-left: auto;
+}
+
+.title {
+  align-self: flex-start;
+}
+
+.button {
+  background-color: $mainBlue;
+  align-self: flex-start;
+}
+
+.input_field {
+  border: 2px solid $inputBorderColor;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+
+.range {
+  width: 300px;
+}
+
+.arrow {
+  background-image: url('../../public/assets/arrow.svg');
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-left: 5px;
+}
+
+.departure {
+  display: flex;
+  flex-direction: column;
+}
+
+.flightList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-y: auto;
+  height: 500px;
+  margin: 20px 0;
+}
+
+.flight {
+  display: flex;
+  background-color: $white;
+  margin-top: 15px;
+  width: 100%;
+  border-radius: 20px;
+  justify-content: space-between;
+  align-items: center;
+  color: $darkTextColor;
+  padding: 20px;
+}
+
+.segments {
+  width: 100%;
+  margin: 0 30px;
+  .line {
+    height: 1px;
+    background-color: $inputBorderColor;
+    width: 100%;
+    margin: 0 10px;
+  }
+}
+
+.segment {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.infoSegment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    font-size: 20px;
+    font-weight: 400;
+  }
+  h3 {
+    font-size: 14px;
+  }
+}
+
+.date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h2 {
+    font-size: 24px;
+    font-weight: 400;
+  }
+  h3 {
+    font-size: 14px;
+  }
+}
+
+.flightPrice {
+  font-size: 22px;
+  font-weight: 600;
+}
+.selected {
+  background-color: #dfffde;
+}

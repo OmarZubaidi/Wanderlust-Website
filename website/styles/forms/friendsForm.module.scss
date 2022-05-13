@@ -1,0 +1,39 @@
+@import '../variables';
+
+.friendsForm {
+  width: 700px;
+  height: 400px;
+  background-color: $inputFormBG;
+  padding: 50px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  display: flex;
+  position: relative;
+}
+
+.goBack {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 20px;
+  left: 20px;
+  transform: rotate(180deg);
+}
+
+.title {
+  align-self: start;
+  margin-bottom: 10px;
+}
+
+.left {
+  width: 350px;
+  margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.finalize:hover {
+  background-color: $mainBlueHover;
+  cursor: pointer;
+}

@@ -1,0 +1,22 @@
+@import 'variables';
+
+.container {
+  padding: 20px;
+}
+
+.bookContainer {
+  margin-bottom: 40px;
+}
+
+.bookTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: $darkTextColor;
+}
+.hotelsButton {
+  background-color: $mainPink;
+  margin-top: 20px;
+  a {
+    color: $white;
+  }
+}

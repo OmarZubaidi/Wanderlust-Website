@@ -1,0 +1,33 @@
+@import 'variables';
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-top: solid $inputBorderColor 0.8px;
+  background-color: $white;
+}
+
+.footer_links {
+  display: flex;
+}
+
+.footer_links li:first-of-type a {
+  border-left: none;
+}
+
+.footer_link {
+  padding: 0 10px;
+  font-size: 14px;
+  font-weight: 300;
+  border-left: solid $inputBorderColor 1px;
+}
+
+.footer_title {
+  color: $darkTextColor;
+  font-weight: 600;
+}
+
+.footer_container {
+  padding-top: 50px;
+}

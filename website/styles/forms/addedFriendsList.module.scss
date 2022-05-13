@@ -1,0 +1,13 @@
+@import '../variables';
+
+.friends_title {
+  font-weight: 600;
+  color: $darkTextColor;
+}
+
+.userList {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 300px;
+}
