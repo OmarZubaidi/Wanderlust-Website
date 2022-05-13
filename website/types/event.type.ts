@@ -5,7 +5,8 @@ export interface EventType {
   allDay: boolean;
   description: string;
   location: string;
-  coordinates: string;
+  latitude: number;
+  longitude: number;
   price: string;
   eventApiId: number;
   bookingLink: string;

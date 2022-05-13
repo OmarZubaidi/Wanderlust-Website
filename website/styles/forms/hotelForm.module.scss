@@ -1,0 +1,103 @@
+@import '../variables';
+
+.container {
+  width: 800px;
+  min-height: 500px;
+  background-color: $inputFormBG;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.hotelHeader {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.range {
+  width: 300px;
+}
+
+.hotelList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-y: auto;
+  height: 500px;
+  margin: 20px 0;
+}
+
+.hotelCard {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  background-color: $white;
+  margin-top: 15px;
+  width: 100%;
+  border-radius: 20px;
+  color: $darkTextColor;
+  padding: 20px;
+
+  .hotelCardHeader {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.line {
+  height: 1px;
+  background-color: $inputBorderColor;
+  width: 100%;
+  margin: 0 20px;
+}
+
+.date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h2 {
+    font-size: 24px;
+    font-weight: 400;
+  }
+  h3 {
+    font-size: 16px;
+  }
+}
+
+.hotelInfo {
+  margin-top: 10px;
+}
+
+.hotelCenter {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hotelName {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.hotelDescriptionTitle {
+  font-size: 14px;
+}
+
+.hotelPrice {
+  font-size: 22px;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+.hotelDescription {
+  font-size: 12px;
+  font-weight: 500;
+}

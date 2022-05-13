@@ -7,5 +7,5 @@ export const citycode: citycodeType = {
   london: 'LON',
   paris: 'PAR',
   berlin: 'BER',
-  naples: '	NAP',
+  naples: 'NAP',
 };

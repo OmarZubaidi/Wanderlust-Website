@@ -5,9 +5,11 @@ import Dashboard from './dashboard';
 import { createUser, getUserByEmail } from '../services/dbService';
 import { parseUser } from '../utils/userParser';
 import { Loading } from '../components/Loading';
+import { useUserContext } from '../context/userContext';
 
 const HomePage = () => {
   const { user, isLoading } = useAuth0();
+  const { isFetching } = useUserContext();
 
   useEffect(() => {
     const signup = async () => {

@@ -58,3 +58,27 @@ export const flightSearch = (
       });
     });
 };
+
+export const hotelSearch = (cityCode: string, budget: string): Promise<any> => {
+  return amadeus.shopping.hotelOffers
+    .get({
+      cityCode,
+      max: '10',
+    })
+    .then((res: any) => {
+      return new Promise((resolve, reject) => {
+        resolve(
+          res.data
+            .filter((h: any) => {
+              return h.offers[0].price.total <= budget;
+            })
+            .slice(0, 10)
+        );
+      });
+    })
+    .catch(function (responseError: any) {
+      return new Promise((resolve, reject) => {
+        reject(responseError);
+      });
+    });
+};

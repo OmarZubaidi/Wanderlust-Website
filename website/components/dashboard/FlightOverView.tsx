@@ -1,15 +1,11 @@
 import React from 'react';
 import { useUserContext } from '../../context/userContext';
-import { Trip } from '../../types/trip.type';
 import { FlightCard } from './fligths/FlightCard';
 import styles from '../../styles/dashboard/flightOverview.module.scss';
 import Link from 'next/link';
+import { TripProps } from '../../types/tripProp';
 
-type Props = {
-  trip: Trip;
-};
-
-export const FlightOverView: React.FC<Props> = ({ trip }) => {
+export const FlightOverView: React.FC<TripProps> = ({ trip }) => {
   const { userDb, isFetching } = useUserContext();
 
   const needFlight = trip.Flights!.some((flight) => {
@@ -29,7 +25,7 @@ export const FlightOverView: React.FC<Props> = ({ trip }) => {
   ) : undefined;
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       {bookFlight}
       <div>
         <h2>Group flights</h2>
@@ -40,6 +36,6 @@ export const FlightOverView: React.FC<Props> = ({ trip }) => {
           ))}
         </ul>
       </div>
-    </div>
+    </section>
   );
 };
