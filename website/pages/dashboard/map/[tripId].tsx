@@ -7,6 +7,10 @@ import { Trip } from '../../../types/trip.type';
 import dynamic from 'next/dynamic';
 import { useUserContext } from '../../../context/userContext';
 import { TripNavigation } from '../../../components/dashboard/TripNavigation';
+import {
+  getStaticTripPaths,
+  getStaticTripProps,
+} from '../../../utils/getStatic';
 
 const DynamicMap = dynamic(() => import('../../../components/dashboard/Map'), {
   ssr: false,
@@ -17,9 +21,9 @@ type Props = {
 };
 const DashboardMap: React.FC<Props> = ({ trip }) => {
   const { isLoading } = useAuth0();
-  const { userDb } = useUserContext();
+  const { userDb, isFetching } = useUserContext();
 
-  if (isLoading) return <Loading />;
+  if (isLoading || isFetching) return <Loading />;
   return (
     <>
       <DashboardComponent trips={userDb?.Trips!}>
@@ -32,26 +36,7 @@ const DashboardMap: React.FC<Props> = ({ trip }) => {
   );
 };
 
-export const getStaticPaths = async () => {
-  const trips = await getAllTrips();
-  const paths = trips.map((trip) => ({
-    params: { tripId: trip.id?.toString() },
-  }));
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps = async ({ params }: any) => {
-  const id = params.tripId;
-  const trip = await getTrip(+id);
-
-  return {
-    props: {
-      trip,
-    },
-  };
-};
+export const getStaticPaths = getStaticTripPaths;
+export const getStaticProps = getStaticTripProps;
 
 export default DashboardMap;

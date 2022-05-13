@@ -29,6 +29,7 @@ export const ReturnFlightFormComponent: React.FC<TripProps> = ({ trip }) => {
   const [budget, setBudget] = useState('500');
   const [flights, setFlights] = useState<Flight[]>([]);
   const [selectedFlight, setSelectedFlight] = useState<Flight>();
+  const [isSearching, setIsSearching] = useState(false);
 
   const handleSearch = async () => {
     const originLocationCode = citycode[trip.destination.toLowerCase()];
@@ -40,7 +41,7 @@ export const ReturnFlightFormComponent: React.FC<TripProps> = ({ trip }) => {
     }
     const destinationLocationCode = citycode[originCity.toLowerCase()];
     const departureDate = format(new Date(trip.end), 'yyyy-MM-dd');
-    console.log(departureDate);
+    setIsSearching(true);
     flightOffersSearch(
       originLocationCode,
       destinationLocationCode,
@@ -48,6 +49,7 @@ export const ReturnFlightFormComponent: React.FC<TripProps> = ({ trip }) => {
       budget
     ).then((res) => {
       setFlights(parseFlights(res, trip.destination, originCity));
+      setIsSearching(false);
     });
 
     setDeparture(originCity);
@@ -102,6 +104,7 @@ export const ReturnFlightFormComponent: React.FC<TripProps> = ({ trip }) => {
       />
 
       <FlightBookingList
+        isSearching={isSearching}
         flights={flights}
         selectedFlight={selectedFlight}
         bookFlight={bookFlight}

@@ -67,7 +67,7 @@ export const TripNavigation: React.FC<Props> = ({ trip }) => {
             </Link>
           </li>
           <li className={styles.linkItem}>
-            <Link href={'/'}>
+            <Link href={`/dashboard/hotel/${trip.id}`}>
               <a>
                 <Image
                   src='/assets/Hotel.svg'
