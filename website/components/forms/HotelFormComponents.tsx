@@ -2,11 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { TripProps } from '../../types/tripProp';
 import styles from '../../styles/forms/hotelForm.module.scss';
 import { Hotel } from '../../types/hotel.type';
-import { hotelSearch } from '../../utils/amadeus';
+import {
+  altHotelSearch,
+  hotelSearch,
+  HotelSearchById,
+} from '../../utils/amadeus';
 import { hotelParser } from '../../utils/hotelParser';
 import { format } from 'date-fns';
 import Image from 'next/image';
 import { LittleLoading } from '../LittleLoading';
+import { citycode } from '../../utils/citycodes';
 
 export const HotelFormComponent: React.FC<TripProps> = ({ trip }) => {
   const [budget, setBudget] = useState('500');
@@ -15,11 +20,25 @@ export const HotelFormComponent: React.FC<TripProps> = ({ trip }) => {
   const [isSearching, setIsSearching] = useState(true);
 
   useEffect(() => {
-    console.log('searching');
-    hotelSearch('BER', budget).then((res) => {
-      setHotels(hotelParser(res, trip));
+    // console.log('searching');
+    // hotelSearch('BER', budget).then((res) => {
+    //   setHotels(hotelParser(res, trip));
+    //   setIsSearching(false);
+    // });
+
+    const searchHotels = async () => {
+      const hotelsApi = await altHotelSearch(
+        citycode[trip.destination.toLowerCase()]
+      );
+      const hotelsToSave: Hotel[] = [];
+      hotelsApi.forEach(async (hotelApi: any) => {
+        const completeHotel = await HotelSearchById(hotelApi.hotelId, budget);
+        hotelsToSave.push(completeHotel);
+      });
+      setHotels(hotelParser(hotelsToSave, trip));
       setIsSearching(false);
-    });
+    };
+    searchHotels();
   }, [research]);
 
   return (

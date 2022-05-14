@@ -2,9 +2,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 import React, { useEffect, useState } from 'react';
 import { DashboardComponent } from '../../../components/dashboard/DashboardComponent';
 import { Loading } from '../../../components/Loading';
-import { getAllTrips, getTrip } from '../../../services/dbService';
-import { Trip } from '../../../types/trip.type';
-
 import { useUserContext } from '../../../context/userContext';
 import { TripNavigation } from '../../../components/dashboard/TripNavigation';
 import { FlightOverView } from '../../../components/dashboard/FlightOverView';

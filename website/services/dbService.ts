@@ -1,3 +1,4 @@
+import { eventsServiceGetEvents } from './eventsService';
 import {
   flightServiceCreateFlight,
   flightServiceGetFlightByApiId,
@@ -35,6 +36,9 @@ const getFlightByApiId = flightServiceGetFlightByApiId;
 // connecting users <=> flights <=> trips
 const createUsersFlightTripsConnection = userOnFlightsCreateConnection;
 
+// Events
+const getEvents = eventsServiceGetEvents;
+
 export {
   createUser,
   getUserByEmail,
@@ -46,4 +50,5 @@ export {
   createFlight,
   getFlightByApiId,
   createUsersFlightTripsConnection,
+  getEvents,
 };
