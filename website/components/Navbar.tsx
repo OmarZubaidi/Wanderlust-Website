@@ -21,7 +21,7 @@ export const Navbar: React.FC = () => {
         {user ? (
           <div className='buttons'>
             <div className={`avatar_dropdown ${show}`}>
-              <Link href={'/'}>
+              <Link href={'/account'}>
                 <a>Account</a>
               </Link>
               <a
