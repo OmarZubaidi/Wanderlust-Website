@@ -39,11 +39,6 @@ export const bookGroupFlights = async (
   const flights = await getFlightByApiId(apiId);
   for (let flight of flights) {
     if (checkIfFlightIsOnTrip(flight, tripId, flightToBook)) {
-      console.log({
-        flightId: flight.id!,
-        tripId,
-        userId,
-      });
       const response = await createUsersFlightTripsConnection(
         userId,
         flight.id!,
