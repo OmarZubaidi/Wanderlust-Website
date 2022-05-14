@@ -4,6 +4,10 @@ import {
   flightServiceGetFlightByApiId,
 } from './flightService';
 import {
+  hotelsServiceCreatehotel,
+  hotelsServiceGetHotelByApiId,
+} from './hotelsService';
+import {
   tripServiceCreateTrip,
   tripServicegetAllTrips,
   tripServiceGetTrip,
@@ -14,6 +18,7 @@ import {
   userServiceGetById,
 } from './userService';
 import { userOnFlightsCreateConnection } from './usersOnFlightsService';
+import { UOHServiceCreateConnectionUsersHotelsTrip } from './usersOnHotels';
 import { usersOnTripsServiceCreate } from './usersOnTripsService';
 
 // users
@@ -36,8 +41,16 @@ const getFlightByApiId = flightServiceGetFlightByApiId;
 // connecting users <=> flights <=> trips
 const createUsersFlightTripsConnection = userOnFlightsCreateConnection;
 
+// connecting users <=> hotels <=> trips
+const createUsersTripHotelConnection =
+  UOHServiceCreateConnectionUsersHotelsTrip;
+
 // Events
 const getEvents = eventsServiceGetEvents;
+
+// Hotels
+const getHotelByAPiId = hotelsServiceGetHotelByApiId;
+const createHotel = hotelsServiceCreatehotel;
 
 export {
   createUser,
@@ -51,4 +64,7 @@ export {
   getFlightByApiId,
   createUsersFlightTripsConnection,
   getEvents,
+  getHotelByAPiId,
+  createHotel,
+  createUsersTripHotelConnection,
 };

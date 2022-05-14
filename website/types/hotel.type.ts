@@ -11,7 +11,7 @@ export interface Hotel {
   departure: Date;
   nights: number;
   priceTotal: string;
-  hotelApiId: number;
+  hotelApiId: string;
   createdAt?: Date;
   UsersOnHotels?: UsersOnHotels[];
   Users?: User[];

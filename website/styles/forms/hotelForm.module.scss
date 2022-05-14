@@ -101,3 +101,12 @@
   font-size: 12px;
   font-weight: 500;
 }
+
+.button {
+  background-color: $mainBlue;
+  align-self: flex-start;
+}
+
+.selected {
+  background-color: #dfffde;
+}
