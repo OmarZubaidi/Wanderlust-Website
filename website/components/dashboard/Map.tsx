@@ -9,15 +9,16 @@ import {
   onMapClick,
 } from '../../utils/mapUtils';
 import { EventType } from '../../types/event.type';
+import { TripProps } from '../../types/tripProp';
 
-type MapProps = {
+type MapProps = TripProps & {
   events: EventType[];
 };
 
-const Map = ({ events }: MapProps) => {
+const Map = ({ events, trip }: MapProps) => {
   useEffect(() => {
     const map: L.Map = L.map('map').setView(
-      [41.38894358473509, 2.1676695207688135],
+      [trip.latitude, trip.longitude],
       14
     );
     createTileLayer(map);
@@ -31,7 +32,7 @@ const Map = ({ events }: MapProps) => {
     return () => {
       map.remove();
     };
-  }, []);
+  }, [trip]);
 
   return <div id='map'></div>;
 };
