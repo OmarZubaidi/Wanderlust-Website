@@ -4,11 +4,13 @@ import styles from '../../../styles/forms/tripForm.module.scss';
 type ReturnInputProps = {
   endDate: string;
   handleChange: (input: string, value: string) => void;
+  min: string;
 };
 
 export const ReturnInput: React.FC<ReturnInputProps> = ({
   endDate,
   handleChange,
+  min,
 }) => {
   return (
     <div className={styles.input}>
@@ -19,6 +21,7 @@ export const ReturnInput: React.FC<ReturnInputProps> = ({
         id='return'
         type='date'
         value={endDate}
+        min={min}
         onChange={(e) => handleChange('endDate', e.target.value)}
       />
     </div>

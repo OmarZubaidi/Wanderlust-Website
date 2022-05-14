@@ -9,6 +9,8 @@ export const tripServiceCreateTrip = async (trip: CacheTrip): Promise<Trip> => {
       start: new Date(trip.startDate),
       end: new Date(trip.endDate),
       destination: trip.destination,
+      latitude: +trip.latitude,
+      longitude: +trip.longitude,
     };
     console.log(JSON.stringify(tripToAdd));
     const response = await fetch(serverUrl + '/trips', {

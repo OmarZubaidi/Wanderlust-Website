@@ -4,6 +4,8 @@ export type CacheTrip = {
   startDate: string;
   endDate: string;
   destination: string;
+  latitude: number;
+  longitude: number;
 };
 
 export const cacheAddedFriends = (addedFriends: User[]) => {
