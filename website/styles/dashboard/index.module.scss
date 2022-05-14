@@ -1,3 +1,5 @@
+@import '../variables';
+
 .container {
   display: grid;
   grid-template-columns: 220px 1fr;
@@ -17,6 +19,112 @@
   background-position-y: bottom;
   margin-bottom: 30px;
 }
+
+.account {
+  margin: 100px auto;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+
+  .account_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .account_profile {
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-bottom: 50px;
+    }
+
+    form {
+
+      .form_input {
+        display: flex;
+        flex-direction: column;
+        width: 320px;
+        margin-bottom: 20px;
+        
+        .form_input_header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 5px;
+
+          label {
+            font-weight: 500;
+          }
+
+          span {
+            color: $inputBorderColor;
+          }
+        }
+        
+        input {
+          padding: 10px 15px;
+          border-radius: 5px;
+          border: 1px solid $inputBorderColor;
+        }
+
+      }
+
+      button {
+        background: $mainPink;
+        color: #fff;
+        font-weight: 700;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: darken($mainPink, 5);
+          transition: all 0.3s ease;
+        }
+      }
+
+      .form_bottom {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .form_submitted {
+          padding-left: 20px;
+          display: flex;
+          align-items: center; 
+          transition: all 0.3s ease;         
+  
+          &:before {
+            content: '';
+            background-image: url(../../public/assets/icon_checkmark.svg);
+            background-size: 20px auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin-right: 5px;
+          }
+        }
+
+        .form_error {
+          color: red;
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+}
+
 
 @media (max-width: 960px) {
   .container {
