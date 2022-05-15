@@ -12,7 +12,7 @@ export const AddedFriendsList: React.FC<AddedFriendsListProps> = ({
 }) => {
   return (
     <div className={styles.right}>
-      <h4 className={styles.friends_title}>Added friends</h4>
+      <h4 className={styles.friends_title}>Group</h4>
       <ul className={styles.userList}>
         {addedFriends
           .filter((u) => u.id)

@@ -22,7 +22,10 @@ import {
 } from './userService';
 import { userOnFlightsCreateConnection } from './usersOnFlightsService';
 import { UOHServiceCreateConnectionUsersHotelsTrip } from './usersOnHotels';
-import { usersOnTripsServiceCreate } from './usersOnTripsService';
+import {
+  userOnTripServiceCreate,
+  usersOnTripsServiceCreate,
+} from './usersOnTripsService';
 
 // users
 const createUser = userServiceCreate;
@@ -36,6 +39,7 @@ const getTrip = tripServiceGetTrip;
 
 // connecting users <=> trips
 const createUsersOnTrips = usersOnTripsServiceCreate;
+const createUserOnTrip = userOnTripServiceCreate;
 
 //flights
 const createFlight = flightServiceCreateFlight;
@@ -72,4 +76,5 @@ export {
   createHotel,
   createUsersTripHotelConnection,
   createEvent,
+  createUserOnTrip,
 };

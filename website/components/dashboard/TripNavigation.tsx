@@ -1,15 +1,22 @@
 import Link from 'next/link';
 import React from 'react';
 import { Trip } from '../../types/trip.type';
-import styles from '../../styles/dashboard/TripNavigation.module.scss';
+import styles from '../../styles/dashboard/tripNavigation.module.scss';
 import Image from 'next/image';
 import { deleteCachedFlight } from '../../utils/localStorage';
+import { useRouter } from 'next/router';
 
 type Props = {
   trip: Trip;
 };
 
 export const TripNavigation: React.FC<Props> = ({ trip }) => {
+  const router = useRouter();
+
+  const goToAddFriends = () => {
+    router.push(`/group/${trip.id}`);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.navigationHeader}>
@@ -24,11 +31,16 @@ export const TripNavigation: React.FC<Props> = ({ trip }) => {
                   style={{
                     backgroundImage: `url(${user.pictureUrl})`,
                     backgroundSize: 'contain',
+                    cursor: 'auto',
                   }}
                 ></div>
               ))}
+            <div>
+              <button onClick={goToAddFriends} className={styles.addUserButton}>
+                <Image src={'/assets/userIcon.svg'} width={30} height={30} />
+              </button>
+            </div>
           </div>
-          <div>Add a friend</div>
         </div>
       </div>
       <nav>

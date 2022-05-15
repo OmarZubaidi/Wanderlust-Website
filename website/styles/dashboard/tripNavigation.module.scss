@@ -9,6 +9,7 @@
 }
 .usersAvatar {
   display: flex;
+  align-items: flex-end;
 }
 
 .navigationHeader {
@@ -31,4 +32,10 @@
       transform: scale(1.1);
     }
   }
+}
+
+.addUserButton {
+  background-color: transparent;
+  margin-left: 10px;
+  cursor: pointer;
 }
