@@ -112,7 +112,7 @@ export const HotelSearchById = (
     .then((res: any) => {
       return res.data
         .filter((h: any) => {
-          return h.offers[0].price.total <= budget;
+          return +h.offers[0].price.total <= +budget;
         })
         .slice(0, 10);
     })

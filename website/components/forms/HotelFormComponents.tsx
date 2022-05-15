@@ -27,7 +27,7 @@ export const HotelFormComponent: React.FC<TripProps> = ({ trip }) => {
   const [selectedHotel, setSelectedHotel] = useState<Hotel>();
 
   useEffect(() => {
-    console.log('searching');
+    setIsSearching(true);
     hotelSearch(citycode[trip.destination.toLowerCase()], budget).then(
       (res) => {
         setHotels(hotelParser(res, trip));

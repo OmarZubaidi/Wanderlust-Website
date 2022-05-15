@@ -18,7 +18,8 @@ export const HotelFromHeader: React.FC<HotelFromProps> = ({
       <div>
         <p>Price x night {budget}€</p>
         <input
-          onBlur={() => setResearch()}
+          // onBlur={() => setResearch()}
+          onPointerUp={() => setResearch()}
           step={20}
           type='range'
           className={styles.range}

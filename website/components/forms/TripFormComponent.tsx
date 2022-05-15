@@ -3,6 +3,7 @@ import React, { FormEvent, useState } from 'react';
 import styles from '../../styles/forms/tripForm.module.scss';
 import { Trip } from '../../types/trip.type';
 import { cityCoordinates } from '../../utils/cityCoordinates';
+import { CacheTrip } from '../../utils/localStorage';
 import { ContinueButton } from './tripFormComponents/ContinueButton';
 import { DepartureInput } from './tripFormComponents/DepartureInput';
 import { DestinationInput } from './tripFormComponents/DestinationInput';
@@ -16,7 +17,7 @@ export const TripFormComponent: React.FC = () => {
 
   const goToFriendsForm = (event: FormEvent) => {
     event.preventDefault();
-    const trip: any = {
+    const trip: CacheTrip = {
       startDate,
       endDate,
       destination,

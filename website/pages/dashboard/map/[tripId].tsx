@@ -26,20 +26,20 @@ const DashboardMap: React.FC<Props> = ({ trip, events }) => {
   const { userDb, isFetching } = useUserContext();
 
   if (isLoading || isFetching) return <Loading />;
-  useEffect(() => {
-    if (tripsInSync.length === 0) {
-      const trips = userDb?.Trips!.map((t) => t.id).includes(trip.id)
-        ? userDb?.Trips!
-        : [trip, ...userDb?.Trips!];
+  // useEffect(() => {
+  //   if (tripsInSync.length === 0) {
+  //     const trips = userDb?.Trips!.map((t) => t.id).includes(trip.id)
+  //       ? userDb?.Trips!
+  //       : [trip, ...userDb?.Trips!];
 
-      console.log('trips', trip);
-      setTripsInSync(trips);
-    }
-  }, [trip]);
+  //     console.log('trips', trip);
+  //     setTripsInSync(trips);
+  //   }
+  // }, []);
 
   return (
     <>
-      <DashboardComponent trips={tripsInSync!}>
+      <DashboardComponent trips={userDb?.Trips!}>
         <div>
           <TripNavigation trip={trip} />
           <DynamicMap events={events} trip={trip} />

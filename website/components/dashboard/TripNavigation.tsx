@@ -78,6 +78,18 @@ export const TripNavigation: React.FC<Props> = ({ trip }) => {
               </a>
             </Link>
           </li>
+          <li className={styles.linkItem}>
+            <Link href={`/dashboard/events/${trip.id}`}>
+              <a>
+                <Image
+                  src='/assets/event.svg'
+                  alt='Hotel Icon'
+                  width={35}
+                  height={35}
+                />
+              </a>
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>

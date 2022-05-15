@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from '../../styles/landingPageStyle/sections.module.scss';
 import Image from 'next/image';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export const LandingPageSections: React.FC = () => {
+  const { loginWithRedirect } = useAuth0();
   return (
     <section className={styles.sections}>
       <section className={styles.section}>
@@ -15,8 +17,22 @@ export const LandingPageSections: React.FC = () => {
             Esse, fugit?
           </p>
           <div className={styles.sign_buttons}>
-            <button className='button login_button'>Login</button>
-            <button className='button signup_button'>Register</button>
+            <button
+              onClick={() => loginWithRedirect()}
+              className='button login_button'
+            >
+              Login
+            </button>
+            <button
+              onClick={() =>
+                loginWithRedirect({
+                  screen_hint: 'signup',
+                })
+              }
+              className='button signup_button'
+            >
+              Register
+            </button>
           </div>
         </article>
         <article className={styles.pin_img}></article>

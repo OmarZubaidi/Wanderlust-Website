@@ -21,8 +21,15 @@ export const Navbar: React.FC = () => {
         {user ? (
           <div className='buttons'>
             <div className={`avatar_dropdown ${show}`}>
+              <Link href={'/dashboard'}>
+                <a className='linkDropdown' onClick={() => setOpen(false)}>
+                  Trips
+                </a>
+              </Link>
               <Link href={'/account'}>
-                <a>Account</a>
+                <a className='linkDropdown' onClick={() => setOpen(false)}>
+                  Account
+                </a>
               </Link>
               <a
                 id='logout_button'

@@ -1,4 +1,3 @@
-import trip from '../pages/trip';
 import {
   createFlight,
   createUsersFlightTripsConnection,
@@ -59,7 +58,7 @@ export const createFlightAndConnection = async (
     ...flight,
     flightApiId: +flight.flightApiId,
   });
-  if (typeof newflight !== 'string') {
+  if (newflight.id) {
     const connection = await createUsersFlightTripsConnection(
       userId,
       newflight.id,

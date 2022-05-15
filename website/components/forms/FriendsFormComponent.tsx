@@ -25,13 +25,20 @@ import { useUserContext } from '../../context/userContext';
 export const FriendsFormComponent: React.FC = () => {
   const { userDb } = useUserContext();
   const router = useRouter();
-  const [trip, setTrip] = useState<CacheTrip>(router.query as CacheTrip);
+  const tripQuery = {
+    startDate: router.query.startDate as string,
+    endDate: router.query.endDate as string,
+    destination: router.query.destination as string,
+    latitude: +router.query.latitude! as number,
+    longitude: +router.query.longitude! as number,
+  };
+  const [trip, setTrip] = useState<CacheTrip>(tripQuery);
   const [emailFriend, setEmailFriend] = useState<string>('');
   const [addedFriends, setAddedFriends] = useState<User[]>([]);
   const [error, setError] = useState('');
 
   useEffect(() => {
-    cacheTrip(router.query as CacheTrip);
+    cacheTrip(tripQuery);
     setTrip(getCachedTrip());
     const friendsFromLocalStorage = getCachedAddedFriends();
     if (friendsFromLocalStorage && friendsFromLocalStorage.length > 0) {
