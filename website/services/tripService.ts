@@ -34,7 +34,7 @@ export const tripServiceGetTrip = async (tripId: number): Promise<Trip> => {
   try {
     const response = await fetch(serverUrl + `/trips/${tripId}`);
     const data = await response.json();
-    if (data.status === 404) throw new Error(data.message);
+    if (data.status >= 400) throw new Error(data.message);
     return data as Trip;
   } catch (error: any) {
     console.log(error.message);
@@ -46,7 +46,7 @@ export const tripServicegetAllTrips = async (): Promise<Trip[]> => {
   try {
     const response = await fetch(serverUrl + '/trips');
     const data = await response.json();
-    if (data.status === 404) throw new Error(data.message);
+    if (data.status >= 400) throw new Error(data.message);
     return data as Trip[];
   } catch (error: any) {
     console.log(error.message);

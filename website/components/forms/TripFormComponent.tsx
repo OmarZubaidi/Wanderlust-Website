@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { FormEvent, useState } from 'react';
+import { getCoordinates } from '../../services/locationsService';
 import styles from '../../styles/forms/tripForm.module.scss';
 import { Trip } from '../../types/trip.type';
 import { cityCoordinates } from '../../utils/cityCoordinates';
@@ -15,14 +16,21 @@ export const TripFormComponent: React.FC = () => {
   const [endDate, setEndDate] = useState<string>('');
   const [destination, setDestination] = useState<string>('');
 
-  const goToFriendsForm = (event: FormEvent) => {
+  const goToFriendsForm = async (event: FormEvent) => {
     event.preventDefault();
+
+    const coordinates = await getCoordinates(destination);
+    console.log(coordinates);
     const trip: CacheTrip = {
       startDate,
       endDate,
       destination,
-      latitude: cityCoordinates[destination.toLowerCase()].latitude,
-      longitude: cityCoordinates[destination.toLowerCase()].longitude,
+      latitude:
+        coordinates.latitude ||
+        cityCoordinates[destination.toLowerCase()].latitude,
+      longitude:
+        coordinates.longitude ||
+        cityCoordinates[destination.toLowerCase()].longitude,
     };
     if (!startDate || !endDate || !destination) return;
     router.push({ pathname: '/trip/friends', query: trip });

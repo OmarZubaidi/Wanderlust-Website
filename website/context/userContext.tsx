@@ -6,6 +6,7 @@ import { User } from '../types/user.type';
 type UserContextType = {
   userDb: User | undefined;
   isFetching: boolean;
+  refetchUser: () => void;
 };
 
 const UserContext = createContext<UserContextType>({
@@ -17,6 +18,7 @@ const UserContext = createContext<UserContextType>({
     pictureUrl: '',
   },
   isFetching: false,
+  refetchUser: () => {},
 });
 type Props = {
   children?: React.ReactNode;
@@ -43,13 +45,22 @@ export const UserProvider: React.FC<Props> = ({ children }) => {
     }
   };
 
+  const refetchUser = async () => {
+    if (userDb && userDb.id) {
+      const refetchedUser = await getUserById(userDb.id);
+      if (typeof refetchedUser !== 'string') {
+        setUserDb(refetchedUser);
+      }
+    }
+  };
+
   useEffect(() => {
     setIsFetching(true);
     findUserDb();
   }, [user]);
 
   return (
-    <UserContext.Provider value={{ userDb, isFetching }}>
+    <UserContext.Provider value={{ userDb, isFetching, refetchUser }}>
       {children}
     </UserContext.Provider>
   );

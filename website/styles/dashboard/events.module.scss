@@ -1,0 +1,49 @@
+@import '../variables';
+
+.container {
+  margin: 20px;
+}
+
+.eventList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.eventItem {
+  border-radius: 10px;
+  width: 33%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  .eventHeader {
+    width: 100%;
+    background-color: azure;
+    height: 120px;
+    border-radius: 10px;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  p {
+    font-size: 14px;
+  }
+
+  .eventFooter {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: auto;
+    align-items: center;
+    .book {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $mainBlue;
+    }
+
+    h5 {
+      font-weight: 600;
+    }
+  }
+}

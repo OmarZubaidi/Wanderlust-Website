@@ -47,6 +47,7 @@ export const SideBar: React.FC<Props> = ({ trips }) => {
       </div>
       <input
         type='text'
+        placeholder='Search'
         className={styles.trip_search}
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}

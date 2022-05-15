@@ -103,7 +103,9 @@ export const FriendsFormComponent: React.FC = () => {
 
   const finalizeAndGoToDashboard = async () => {
     const newTrip = await finalize();
-    if (newTrip) router.push(`/dashboard/map/${newTrip.id}`);
+    if (newTrip) {
+      router.push(`/dashboard/map/${newTrip.id}`);
+    }
   };
 
   const finalizeAndGoToFlight = async () => {
