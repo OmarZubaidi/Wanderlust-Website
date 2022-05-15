@@ -1,5 +1,6 @@
 import L from 'leaflet';
 import { EventType } from '../types/event.type';
+import { Hotel } from '../types/hotel.type';
 
 export const barcelonaMarker = () => {
   return L.icon({
@@ -50,4 +51,11 @@ export const createMarker = (
     icon,
   }).addTo(map);
   marker.bindPopup(eventItem.title);
+};
+
+export const createHotelMarker = (hotel: Hotel, icon: L.Icon, map: L.Map) => {
+  const marker = L.marker([hotel.latitude, hotel.longitude], {
+    icon,
+  }).addTo(map);
+  marker.bindPopup(hotel.name);
 };

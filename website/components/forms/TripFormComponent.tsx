@@ -18,9 +18,7 @@ export const TripFormComponent: React.FC = () => {
 
   const goToFriendsForm = async (event: FormEvent) => {
     event.preventDefault();
-
     const coordinates = await getCoordinates(destination);
-    console.log(coordinates);
     const trip: CacheTrip = {
       startDate,
       endDate,

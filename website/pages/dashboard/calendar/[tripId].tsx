@@ -8,7 +8,10 @@ import { useUserContext } from '../../../context/userContext';
 import { getEvents, getTrip } from '../../../services/dbService';
 import { EventType } from '../../../types/event.type';
 import { TripProps } from '../../../types/tripProp';
-import { getStaticTripPaths } from '../../../utils/getStatic';
+import {
+  getStaticTripPaths,
+  getStaticTripProps,
+} from '../../../utils/getStatic';
 
 const DynamicCalendar = dynamic(
   //@ts-ignore
@@ -22,7 +25,7 @@ type CalendarProps = TripProps & {
   events: EventType[];
 };
 
-const DashboardCalendar: React.FC<CalendarProps> = ({ trip, events }) => {
+const DashboardCalendar: React.FC<TripProps> = ({ trip }) => {
   const { userDb, isFetching } = useUserContext();
   const { isLoading } = useAuth0();
   if (isLoading || isFetching) return <Loading />;
@@ -35,24 +38,13 @@ const DashboardCalendar: React.FC<CalendarProps> = ({ trip, events }) => {
     <DashboardComponent trips={trips}>
       <div>
         <TripNavigation trip={trip} />
-        <DynamicCalendar trip={trip} events={events} />
+        <DynamicCalendar trip={trip} />
       </div>
     </DashboardComponent>
   );
 };
 
 export const getStaticPaths = getStaticTripPaths;
-export const getStaticProps = async ({ params }: any) => {
-  const id = params.tripId;
-  const trip = await getTrip(+id);
-  const events = await getEvents();
-
-  return {
-    props: {
-      trip,
-      events,
-    },
-  };
-};
+export const getStaticProps = getStaticTripProps;
 
 export default DashboardCalendar;

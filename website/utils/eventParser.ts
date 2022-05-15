@@ -1,7 +1,6 @@
 import { EventType } from '../types/event.type';
 
 export const eventParser = (eventsFromAmadeus: any): EventType[] => {
-  console.log(eventsFromAmadeus);
   return eventsFromAmadeus.map((event: any) => {
     return {
       title: event.name,
@@ -10,13 +9,14 @@ export const eventParser = (eventsFromAmadeus: any): EventType[] => {
       allDay: false,
       description: event.shortDescription,
       location: '',
-      longitude: +event.geocode?.longitude || null,
-      latitude: +event.geocode?.latitude || null,
+      longitude: +event.geoCode?.longitude || null,
+      latitude: +event.geoCode?.latitude || null,
       price: +event.price.amount,
       eventApiId: +event.id,
       type: event.type,
       pictures: event.pictures[0],
       rating: +event.rating,
+      bookingLink: event.bookingLink,
     };
   });
 };

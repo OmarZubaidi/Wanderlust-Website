@@ -33,7 +33,7 @@ const DashboardEvents: React.FC<EventsProps> = ({ trip, events }) => {
     <DashboardComponent trips={trips}>
       <div>
         <TripNavigation trip={trip} />
-        <EventsComponent events={events} />
+        <EventsComponent events={events} trip={trip} />
       </div>
     </DashboardComponent>
   );

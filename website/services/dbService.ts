@@ -1,4 +1,7 @@
-import { eventsServiceGetEvents } from './eventsService';
+import {
+  eventsServiceCreateEvent,
+  eventsServiceGetEvents,
+} from './eventsService';
 import {
   flightServiceCreateFlight,
   flightServiceGetFlightByApiId,
@@ -47,6 +50,7 @@ const createUsersTripHotelConnection =
 
 // Events
 const getEvents = eventsServiceGetEvents;
+const createEvent = eventsServiceCreateEvent;
 
 // Hotels
 const getHotelByAPiId = hotelsServiceGetHotelByApiId;
@@ -67,4 +71,5 @@ export {
   getHotelByAPiId,
   createHotel,
   createUsersTripHotelConnection,
+  createEvent,
 };

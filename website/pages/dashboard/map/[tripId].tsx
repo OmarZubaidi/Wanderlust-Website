@@ -56,12 +56,10 @@ export const getStaticPaths = getStaticTripPaths;
 export const getStaticProps = async ({ params }: any) => {
   const id = params.tripId;
   const trip = await getTrip(+id);
-  const events = await getEvents();
-
   return {
     props: {
       trip,
-      events,
+      events: trip.Events,
     },
   };
 };
