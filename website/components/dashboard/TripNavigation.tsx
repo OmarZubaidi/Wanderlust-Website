@@ -12,20 +12,23 @@ type Props = {
 export const TripNavigation: React.FC<Props> = ({ trip }) => {
   return (
     <div className={styles.container}>
-      <div className={styles.navigationHeader + ' titleH2'}>
-        <h2>{trip.destination}</h2>
-        <div className={styles.usersAvatar}>
-          {trip.Users &&
-            trip.Users.map((user) => (
-              <div
-                className='avatar'
-                key={user.id}
-                style={{
-                  backgroundImage: `url(${user.pictureUrl})`,
-                  backgroundSize: 'contain',
-                }}
-              ></div>
-            ))}
+      <div className={styles.navigationHeader}>
+        <h2 className='titleH2'>{trip.destination}</h2>
+        <div>
+          <div className={styles.usersAvatar}>
+            {trip.Users &&
+              trip.Users.map((user) => (
+                <div
+                  className='avatar'
+                  key={user.id}
+                  style={{
+                    backgroundImage: `url(${user.pictureUrl})`,
+                    backgroundSize: 'contain',
+                  }}
+                ></div>
+              ))}
+          </div>
+          <div>Add a friend</div>
         </div>
       </div>
       <nav>
