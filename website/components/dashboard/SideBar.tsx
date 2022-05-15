@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../../styles/dashboard/SideBar.module.scss';
 import { Trip } from '../../types/trip.type';
 import {
@@ -14,12 +14,27 @@ type Props = {
 
 export const SideBar: React.FC<Props> = ({ trips }) => {
   const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState('');
+  const [tripsFilterd, setTripsFiltered] = useState<Trip[]>(trips);
 
   const navigateToTripForm = () => {
     deleteCachedTrip();
     deleteCachedAddedFriends();
     router.push('/trip');
   };
+
+  useEffect(() => {
+    if (searchTerm.length > 0) {
+      const newFilteredTrips = trips.filter((trip) => {
+        return trip.destination
+          .toLowerCase()
+          .startsWith(searchTerm.toLowerCase());
+      });
+      setTripsFiltered(newFilteredTrips);
+    } else {
+      setTripsFiltered(trips);
+    }
+  }, [searchTerm]);
 
   return (
     <div className={styles.container}>
@@ -30,10 +45,16 @@ export const SideBar: React.FC<Props> = ({ trips }) => {
           className={styles.add_trip}
         ></button>
       </div>
-      <input type='text' className={styles.trip_search} />
+      <input
+        type='text'
+        placeholder='Search'
+        className={styles.trip_search}
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
       <ul className={styles.trips}>
         {trips &&
-          trips.map((trip) => (
+          tripsFilterd.map((trip) => (
             <li key={trip.id}>
               <Link href={`/dashboard/map/${trip.id}`}>
                 <a className={styles.trip}>{trip.destination}</a>

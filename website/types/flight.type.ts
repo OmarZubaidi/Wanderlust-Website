@@ -11,7 +11,7 @@ export interface Flight {
   departureCity: string;
   arrivalCity: string;
   lengthOfFlight: string;
-  price: string;
+  price: number;
   flightApiId: number;
   UsersOnFlights?: UsersOnFlights[];
   Users?: User[];

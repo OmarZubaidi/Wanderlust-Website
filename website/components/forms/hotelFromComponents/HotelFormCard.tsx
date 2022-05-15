@@ -40,7 +40,7 @@ export const HotelFormCard: React.FC<HotelFormCardProps> = ({
           <h2>{format(new Date(trip.end), 'dd')}</h2>
           <h3>{format(new Date(trip.end), 'MMM')}</h3>
         </div>
-        <div className={styles.hotelPrice}>{hotel.priceTotal}</div>
+        <div className={styles.hotelPrice}>{hotel.priceTotal}€</div>
       </div>
       <div className={styles.hotelInfo}>
         <div>

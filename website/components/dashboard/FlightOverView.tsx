@@ -28,7 +28,7 @@ export const FlightOverView: React.FC<TripProps> = ({ trip }) => {
     <section className={styles.container}>
       {bookFlight}
       <div>
-        <h2>Group flights</h2>
+        <h2 className={styles.groupTitle}>Group flights</h2>
         <p>Here you can see all the flights of the group:</p>
         <ul className={styles.flightList}>
           {trip.Flights?.map((flight) => (

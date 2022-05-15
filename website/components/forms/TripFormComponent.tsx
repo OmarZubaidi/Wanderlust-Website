@@ -1,8 +1,10 @@
 import { useRouter } from 'next/router';
 import React, { FormEvent, useState } from 'react';
+import { getCoordinates } from '../../services/locationsService';
 import styles from '../../styles/forms/tripForm.module.scss';
 import { Trip } from '../../types/trip.type';
 import { cityCoordinates } from '../../utils/cityCoordinates';
+import { CacheTrip } from '../../utils/localStorage';
 import { ContinueButton } from './tripFormComponents/ContinueButton';
 import { DepartureInput } from './tripFormComponents/DepartureInput';
 import { DestinationInput } from './tripFormComponents/DestinationInput';
@@ -14,14 +16,19 @@ export const TripFormComponent: React.FC = () => {
   const [endDate, setEndDate] = useState<string>('');
   const [destination, setDestination] = useState<string>('');
 
-  const goToFriendsForm = (event: FormEvent) => {
+  const goToFriendsForm = async (event: FormEvent) => {
     event.preventDefault();
-    const trip: any = {
+    const coordinates = await getCoordinates(destination);
+    const trip: CacheTrip = {
       startDate,
       endDate,
       destination,
-      latitude: cityCoordinates[destination.toLowerCase()].latitude,
-      longitude: cityCoordinates[destination.toLowerCase()].longitude,
+      latitude:
+        coordinates.latitude ||
+        cityCoordinates[destination.toLowerCase()].latitude,
+      longitude:
+        coordinates.longitude ||
+        cityCoordinates[destination.toLowerCase()].longitude,
     };
     if (!startDate || !endDate || !destination) return;
     router.push({ pathname: '/trip/friends', query: trip });

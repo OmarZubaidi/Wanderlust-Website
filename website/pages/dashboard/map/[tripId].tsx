@@ -5,7 +5,7 @@ import { Loading } from '../../../components/Loading';
 import { getEvents, getTrip } from '../../../services/dbService';
 import dynamic from 'next/dynamic';
 import { useUserContext } from '../../../context/userContext';
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
 import { TripNavigation } from '../../../components/dashboard/TripNavigation';
 import { getStaticTripPaths } from '../../../utils/getStatic';
 import { TripProps } from '../../../types/tripProp';
@@ -23,23 +23,26 @@ type Props = TripProps & {
 const DashboardMap: React.FC<Props> = ({ trip, events }) => {
   const { isLoading } = useAuth0();
   const [tripsInSync, setTripsInSync] = useState<Trip[]>([]);
-  const { userDb, isFetching } = useUserContext();
+  const { userDb, isFetching, refetchUser } = useUserContext();
+  const router = useRouter();
 
   if (isLoading || isFetching) return <Loading />;
-  useEffect(() => {
-    if (tripsInSync.length === 0) {
-      const trips = userDb?.Trips!.map((t) => t.id).includes(trip.id)
-        ? userDb?.Trips!
-        : [trip, ...userDb?.Trips!];
 
-      console.log('trips', trip);
-      setTripsInSync(trips);
-    }
-  }, [trip]);
+  // useEffect(() => {
+  //   if (userDb?.Trips?.map((t) => t.id).includes(trip.id)) {
+  //     return;
+  //   } else {
+  //     router.reload();
+  //   }
+  // }, [trip]);
+
+  const trips = userDb?.Trips?.map((t) => t.id).includes(trip.id)
+    ? userDb?.Trips!
+    : [...userDb?.Trips!, trip];
 
   return (
     <>
-      <DashboardComponent trips={tripsInSync!}>
+      <DashboardComponent trips={trips}>
         <div>
           <TripNavigation trip={trip} />
           <DynamicMap events={events} trip={trip} />
@@ -53,12 +56,10 @@ export const getStaticPaths = getStaticTripPaths;
 export const getStaticProps = async ({ params }: any) => {
   const id = params.tripId;
   const trip = await getTrip(+id);
-  const events = await getEvents();
-
   return {
     props: {
       trip,
-      events,
+      events: trip.Events,
     },
   };
 };

@@ -112,9 +112,26 @@ export const HotelSearchById = (
     .then((res: any) => {
       return res.data
         .filter((h: any) => {
-          return h.offers[0].price.total <= budget;
+          return +h.offers[0].price.total <= +budget;
         })
         .slice(0, 10);
+    })
+    .catch(function (responseError: any) {
+      return new Promise((resolve, reject) => {
+        reject(responseError);
+      });
+    });
+};
+
+export const getAmadeusEvents = (latitude: number, longitude: number) => {
+  return amadeus.client
+    .get('/v1/shopping/activities', {
+      latitude,
+      longitude,
+      radius: 1,
+    })
+    .then((res: any) => {
+      return res.data.slice(0, 10);
     })
     .catch(function (responseError: any) {
       return new Promise((resolve, reject) => {

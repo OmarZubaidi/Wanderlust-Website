@@ -16,9 +16,14 @@ const DashboardMap: React.FC<TripProps> = ({ trip }) => {
   const { userDb, isFetching } = useUserContext();
 
   if (isLoading || isFetching) return <Loading />;
+
+  const trips = userDb?.Trips?.map((t) => t.id).includes(trip.id)
+    ? userDb?.Trips!
+    : [...userDb?.Trips!, trip];
+
   return (
     <>
-      <DashboardComponent trips={userDb?.Trips!}>
+      <DashboardComponent trips={trips}>
         <div>
           <TripNavigation trip={trip} />
           <FlightOverView trip={trip} />

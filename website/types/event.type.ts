@@ -1,4 +1,5 @@
 export interface EventType {
+  id?: number;
   title: string;
   start: Date;
   end: Date;
@@ -7,11 +8,11 @@ export interface EventType {
   location: string;
   latitude: number;
   longitude: number;
-  price: string;
+  price: number;
   eventApiId: number;
   bookingLink: string;
   type: string;
   pictures: string;
   rating: number;
-  tripId: number;
+  tripId?: number;
 }

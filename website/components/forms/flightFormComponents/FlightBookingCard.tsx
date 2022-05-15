@@ -45,7 +45,7 @@ export const FlightBookingCard: React.FC<BookingCard> = ({
           </div>
         ))}
       </div>
-      <div className={styles.flightPrice}>{flight.price}</div>
+      <div className={styles.flightPrice}>{flight.price}€</div>
     </li>
   );
 };
