@@ -11,6 +11,15 @@ export const barcelonaMarker = () => {
   });
 };
 
+export const hotelMarker = () => {
+  return L.icon({
+    iconUrl: '/assets/hotelMarker.png',
+    iconSize: [40, 40], // size of the icon
+    iconAnchor: [20, 40], // point of the icon which will correspond to marker's location
+    popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
+  });
+};
+
 export const createTileLayer = (map: L.Map) => {
   L.tileLayer(
     'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',

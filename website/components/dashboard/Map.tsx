@@ -7,6 +7,7 @@ import {
   createHotelMarker,
   createMarker,
   createTileLayer,
+  hotelMarker,
   onMapClick,
 } from '../../utils/mapUtils';
 import { EventType } from '../../types/event.type';
@@ -25,6 +26,7 @@ const Map = ({ events, trip }: MapProps) => {
     );
     createTileLayer(map);
     const bcnIcon = barcelonaMarker();
+    const hotelIcon = hotelMarker();
     const popup = L.popup();
     // map.on('click', (e: any) => onMapClick(e, bcnIcon, map, popup));
     events.forEach((eventItem: EventType) => {
@@ -32,7 +34,7 @@ const Map = ({ events, trip }: MapProps) => {
     });
 
     trip.Hotels?.forEach((hotel: Hotel) => {
-      createHotelMarker(hotel, bcnIcon, map);
+      createHotelMarker(hotel, hotelIcon, map);
     });
 
     return () => {
