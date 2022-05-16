@@ -3,12 +3,13 @@ import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
 import L from 'leaflet';
 import {
-  barcelonaMarker,
   createHotelMarker,
   createMarker,
   createTileLayer,
+  eventMarker,
   hotelMarker,
   onMapClick,
+  restaurantMarker,
 } from '../../utils/mapUtils';
 import { EventType } from '../../types/event.type';
 import { TripProps } from '../../types/tripProp';
@@ -25,12 +26,17 @@ const Map = ({ events, trip }: MapProps) => {
       14
     );
     createTileLayer(map);
-    const bcnIcon = barcelonaMarker();
+    const bcnIcon = eventMarker();
     const hotelIcon = hotelMarker();
+    const restaurantIcon = restaurantMarker();
     const popup = L.popup();
     // map.on('click', (e: any) => onMapClick(e, bcnIcon, map, popup));
     events.forEach((eventItem: EventType) => {
-      createMarker(eventItem, bcnIcon, map);
+      if (eventItem.type === 'RESTAURANT') {
+        createMarker(eventItem, restaurantIcon, map);
+      } else {
+        createMarker(eventItem, bcnIcon, map);
+      }
     });
 
     trip.Hotels?.forEach((hotel: Hotel) => {

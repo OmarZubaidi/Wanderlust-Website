@@ -54,13 +54,18 @@ export const SideBar: React.FC<Props> = ({ trips }) => {
       />
       <ul className={styles.trips}>
         {trips &&
-          tripsFilterd.map((trip) => (
-            <li key={trip.id}>
-              <Link href={`/dashboard/map/${trip.id}`}>
-                <a className={styles.trip}>{trip.destination}</a>
-              </Link>
-            </li>
-          ))}
+          tripsFilterd.map((trip) => {
+            const today = new Date().toISOString();
+            const over = new Date(trip.end) < new Date(today);
+
+            return (
+              <li key={trip.id} className={over ? styles.trip_over : ''}>
+                <Link href={`/dashboard/map/${trip.id}`}>
+                  <a className={styles.trip}>{trip.destination}</a>
+                </Link>
+              </li>
+            );
+          })}
       </ul>
     </div>
   );

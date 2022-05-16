@@ -44,11 +44,12 @@ a {
 }
 
 .button {
-  width: 100px;
-  height: 40px;
-  border-radius: 10px;
+  line-height: 1em;
+  padding: 10px 15px;
+  border-radius: 5px;
   color: $white;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .login_button {
@@ -214,7 +215,11 @@ input[type='range'] {
   -webkit-appearance: none;
   height: 7px;
   border-radius: 5px;
-  background-image: linear-gradient($mainPink, $mainPinkHover);
+  background-image: linear-gradient(
+    270deg,
+    rgba(57, 74, 89, 1) 0%,
+    rgba(203, 210, 224, 1) 53%
+  );
   background-repeat: no-repeat;
 }
 
@@ -227,6 +232,7 @@ input[type='range']::-webkit-slider-thumb {
   cursor: pointer;
   box-shadow: 0 0 2px 0 $darkTextColor;
 }
+
 // .react-calendar {
 //   width: 100%;
 //   max-width: 100%;

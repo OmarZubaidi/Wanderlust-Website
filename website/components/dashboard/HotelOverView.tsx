@@ -31,7 +31,7 @@ export const HotelOverView: React.FC<TripProps> = ({ trip }) => {
       <div>
         <h2 className={styles.groupTitle}>Group hotels</h2>
         <p>Here you can see all the hotels of the group:</p>
-        <ul className={styles.flightList}>
+        <ul className={styles.hotelList}>
           {trip.Hotels?.map((hotel: Hotel) => (
             <HotelCard key={hotel.id} hotel={hotel} />
           ))}
