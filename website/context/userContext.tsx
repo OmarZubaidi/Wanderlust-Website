@@ -1,6 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import React, { createContext, useEffect, useState } from 'react';
 import { getUserByEmail, getUserById } from '../services/dbService';
+import { Trip } from '../types/trip.type';
 import { User } from '../types/user.type';
 
 type UserContextType = {
@@ -38,7 +39,14 @@ export const UserProvider: React.FC<Props> = ({ children }) => {
         const userById = await getUserById(data.id!);
 
         if (typeof userById !== 'string') {
-          setUserDb(userById);
+          const newTrips: Trip[] = userById.Trips!.filter((t) => {
+            return new Date(t.end) >= new Date();
+          });
+          const oldTrips: Trip[] = userById.Trips!.filter((t) => {
+            return new Date(t.end) < new Date();
+          });
+
+          setUserDb({ ...userById, Trips: [...newTrips, ...oldTrips] });
           setIsFetching(false);
         }
       }

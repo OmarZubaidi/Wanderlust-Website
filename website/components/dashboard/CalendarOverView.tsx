@@ -7,6 +7,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 import styles from '../../styles/dashboard/calendar.module.scss';
 import { TripProps } from '../../types/tripProp';
 import { EventType } from '../../types/event.type';
+import { deleteEvent, updateEvent } from '../../services/dbService';
 
 type CalendarProps = TripProps & {
   events: EventType[];
@@ -21,6 +22,7 @@ class CalendarOverView extends React.Component {
     currentEvents: this.props.trip.Events.map((event: EventType) => {
       return {
         // allDay: event.allDay,
+        id: event.id,
         start: event.start.slice(0, -1),
         end: event.end.slice(0, -1),
         title: event.title,
@@ -62,10 +64,22 @@ class CalendarOverView extends React.Component {
           initialEvents={this.state.currentEvents} // alternatively, use the `events` setting to fetch from a feed
           // select={this.handleDateSelect}
           // eventContent={renderEventContent} // custom render function
-          // eventClick={this.handleEventClick}
+          eventClick={this.handleEventClick}
           // eventsSet={this.handleEvents} // called after events are initialized/added/changed/removed
           // eventAdd={this.handleEvents}
-          // eventChange={(event: any) => {}}
+          eventChange={async (event: any) => {
+            console.log(
+              +event.event.id,
+              new Date(event.event.startStr).toISOString(),
+              new Date(event.event.endStr).toISOString()
+            );
+
+            await updateEvent(
+              +event.event.id,
+              new Date(event.event.startStr).toISOString(),
+              new Date(event.event.endStr).toISOString()
+            );
+          }}
           /* you can update a remote database when these fire:
             eventRemove={function(){}}
           */
@@ -93,15 +107,16 @@ class CalendarOverView extends React.Component {
   //   }
   // };
 
-  // handleEventClick = (clickInfo: any) => {
-  //   if (
-  //     confirm(
-  //       `Are you sure you want to delete the event '${clickInfo.event.title}'`
-  //     )
-  //   ) {
-  //     clickInfo.event.remove();
-  //   }
-  // };
+  handleEventClick = async (clickInfo: any) => {
+    if (
+      confirm(
+        `Are you sure you want to delete the event '${clickInfo.event.title}'`
+      )
+    ) {
+      clickInfo.event.remove();
+      await deleteEvent(+clickInfo.event.id);
+    }
+  };
 
   // handleEvents = (events: any) => {
   //   if (events) {

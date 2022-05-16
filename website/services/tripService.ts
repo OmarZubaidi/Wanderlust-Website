@@ -12,7 +12,7 @@ export const tripServiceCreateTrip = async (trip: CacheTrip): Promise<Trip> => {
       latitude: +trip.latitude,
       longitude: +trip.longitude,
     };
-    console.log(JSON.stringify(tripToAdd));
+
     const response = await fetch(serverUrl + '/trips', {
       method: 'POST',
       headers: {
@@ -50,6 +50,21 @@ export const tripServicegetAllTrips = async (): Promise<Trip[]> => {
     return data as Trip[];
   } catch (error: any) {
     console.log(error.message);
+    return error.message;
+  }
+};
+
+export const tripServiceDeleteTrip = async (
+  tripId: number
+): Promise<Trip[]> => {
+  try {
+    const response = await fetch(serverUrl + `trips/${tripId}`, {
+      method: 'DELETE',
+    });
+    const data = await response.json();
+    if (data.status >= 400) throw new Error(data.message);
+    return data as Trip[];
+  } catch (error: any) {
     return error.message;
   }
 };

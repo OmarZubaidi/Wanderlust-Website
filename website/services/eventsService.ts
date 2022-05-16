@@ -30,3 +30,37 @@ export const eventsServiceCreateEvent = async (
     return error.message;
   }
 };
+
+export const eventsServiceUpdateEvent = async (
+  eventId: number,
+  startDate: Date,
+  endDate: Date
+): Promise<EventType> => {
+  try {
+    const response = await fetch(serverUrl + `/events/${eventId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ start: startDate, end: endDate }),
+    });
+    const data = await response.json();
+    if (data.status >= 400) throw new Error(data.message);
+    return data as EventType;
+  } catch (error: any) {
+    return error.message;
+  }
+};
+
+export const eventsServiceDeleteEvent = async (eventId: number) => {
+  try {
+    const response = await fetch(serverUrl + `/events/${eventId}`, {
+      method: 'DELETE',
+    });
+    const data = await response.json();
+    if (data.status >= 400) throw new Error(data.message);
+    return data as EventType;
+  } catch (error: any) {
+    return error.message;
+  }
+};
