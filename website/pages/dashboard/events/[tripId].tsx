@@ -9,18 +9,27 @@ import { useUserContext } from '../../../context/userContext';
 import { getEvents, getTrip } from '../../../services/dbService';
 import { EventType } from '../../../types/event.type';
 import { TripProps } from '../../../types/tripProp';
-import { getAmadeusEvents } from '../../../utils/amadeus';
+import {
+  getAmadeusEvents,
+  getAmadeusRestaurants,
+} from '../../../utils/amadeus';
 import { eventParser } from '../../../utils/eventParser';
 import {
   getStaticTripPaths,
   getStaticTripProps,
 } from '../../../utils/getStatic';
+import { restaurantParser } from '../../../utils/restaurantParser';
 
 type EventsProps = TripProps & {
   events: EventType[];
+  restaurants: EventType[];
 };
 
-const DashboardEvents: React.FC<EventsProps> = ({ trip, events }) => {
+const DashboardEvents: React.FC<EventsProps> = ({
+  trip,
+  events,
+  restaurants,
+}) => {
   const { userDb, isFetching } = useUserContext();
   const { isLoading } = useAuth0();
 
@@ -33,7 +42,11 @@ const DashboardEvents: React.FC<EventsProps> = ({ trip, events }) => {
     <DashboardComponent trips={trips}>
       <div>
         <TripNavigation trip={trip} />
-        <EventsComponent events={events} trip={trip} />
+        <EventsComponent
+          events={events}
+          trip={trip}
+          restaurants={restaurants}
+        />
       </div>
     </DashboardComponent>
   );
@@ -43,14 +56,41 @@ export const getStaticPaths = getStaticTripPaths;
 export const getStaticProps = async ({ params }: any) => {
   const id = params.tripId;
   const trip = await getTrip(+id);
-  const amadeusEvents = await getAmadeusEvents(trip.latitude, trip.longitude);
-  const events = eventParser(amadeusEvents);
-  return {
-    props: {
-      trip,
-      events,
-    },
-  };
+  try {
+    const amadeusEvents = await getAmadeusEvents(trip.latitude, trip.longitude);
+    const events = eventParser(amadeusEvents);
+    try {
+      const amadeusRestaurants = await getAmadeusRestaurants(
+        trip.latitude,
+        trip.longitude
+      );
+      const restaurants = restaurantParser(amadeusRestaurants);
+      return {
+        props: {
+          trip,
+          events,
+          restaurants,
+        },
+      };
+    } catch (error) {
+      return {
+        props: {
+          trip,
+          events,
+          restaurants: [],
+        },
+      };
+    }
+  } catch (error) {
+    console.log(error);
+    return {
+      props: {
+        trip,
+        events: [],
+        restaurants: [],
+      },
+    };
+  }
 };
 
 export default DashboardEvents;

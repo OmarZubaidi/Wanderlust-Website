@@ -5,14 +5,19 @@ import styles from '../../styles/dashboard/events.module.scss';
 import { EventType } from '../../types/event.type';
 import { TripProps } from '../../types/tripProp';
 import { EventItem } from './events/EventItem';
+import { RestaurantItem } from './events/RestaurantItem';
 
 type EventProps = TripProps & {
   events: EventType[];
+  restaurants: EventType[];
 };
 
-export const EventsComponent: React.FC<EventProps> = ({ trip, events }) => {
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
+export const EventsComponent: React.FC<EventProps> = ({
+  trip,
+  events,
+  restaurants,
+}) => {
+  const [toggleEvents, setToggleEvents] = useState(true);
 
   const handleSubmit = async (event: EventType) => {
     const newEvent = await createEvent(event);
@@ -21,20 +26,35 @@ export const EventsComponent: React.FC<EventProps> = ({ trip, events }) => {
 
   return (
     <section className={styles.container}>
-      <ul className={styles.eventList}>
-        {events.map((e) => (
-          <EventItem
-            trip={trip}
-            key={e.eventApiId}
-            startDate={startDate}
-            endDate={endDate}
-            setStartDate={setStartDate}
-            setEndDate={setEndDate}
-            handleSubmit={handleSubmit}
-            e={e}
-          />
-        ))}
-      </ul>
+      <button
+        className={'button ' + styles.toggleButton}
+        onClick={() => setToggleEvents((prev) => !prev)}
+      >
+        {toggleEvents ? 'Restaurants' : 'Events'}
+      </button>
+      {toggleEvents ? (
+        <ul className={styles.eventList}>
+          {events.map((e) => (
+            <EventItem
+              trip={trip}
+              key={e.eventApiId}
+              handleSubmit={handleSubmit}
+              e={e}
+            />
+          ))}
+        </ul>
+      ) : (
+        <ul className={styles.eventList}>
+          {restaurants.map((r) => (
+            <RestaurantItem
+              trip={trip}
+              key={r.eventApiId}
+              handleSubmit={handleSubmit}
+              e={r}
+            />
+          ))}
+        </ul>
+      )}
     </section>
   );
 };

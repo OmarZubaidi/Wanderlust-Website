@@ -35,11 +35,14 @@
   padding: 20px 0;
   display: flex;
   flex-wrap: wrap;
+  margin: 0 -15px;
 }
+
 .flightInfo {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   h2 {
     font-size: 22px;
     font-weight: 600;

@@ -52,6 +52,28 @@
   font-size: 18px;
 }
 
+.trip_over {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  a {
+    line-height: 1em;
+
+    &::before {
+      content: '';
+      width: 15px;
+      height: 15px;
+      background-image: url('../../public/assets/icon_checkmark.svg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+}
+
 @media (max-width: 960px) {
   .container {
     grid-column: 0;

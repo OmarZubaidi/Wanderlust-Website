@@ -52,7 +52,7 @@ class CalendarOverView extends React.Component {
             right: 'dayGridMonth,timeGridWeek,timeGridDay',
           }}
           initialView='dayGridMonth'
-          initialDate={this.props.trip.start}
+          initialDate={this.props.trip.start.slice(0, -14)}
           editable={true}
           height={'59vh'}
           selectable={true}

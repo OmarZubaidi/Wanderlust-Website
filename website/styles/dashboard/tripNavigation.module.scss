@@ -9,6 +9,7 @@
 }
 .usersAvatar {
   display: flex;
+  align-items: center;
 }
 
 .navigationHeader {
@@ -31,4 +32,65 @@
       transform: scale(1.1);
     }
   }
+}
+
+.menu {
+  position: relative;
+}
+
+.menuButton {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  background-color: transparent;
+  margin-left: 25px;
+  transition: all 300ms ease;
+  cursor: pointer;
+  &:hover {
+    background-color: $inputBorderColor;
+  }
+}
+
+.dropdown {
+  position: absolute;
+  background-color: $mainBlueHover;
+  width: 140px;
+  top: 50px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.menuButtonItem {
+  width: 100%;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+  transition: all 300ms ease;
+  &:hover {
+    background-color: $mainBlue;
+  }
+}
+
+.textMenu {
+  margin-right: 5px;
+  font-weight: 500;
+  font-size: 14px;
+  color: $white;
+}
+
+.dates {
+  font-size: 18px;
+}
+
+.smallAvatar {
+  width: 35px;
+  height: 35px;
+  margin-right: -15px;
 }

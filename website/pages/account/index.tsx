@@ -8,7 +8,6 @@ import { userServiceUpdateById } from '../../services/userService';
 const Account: React.FC = () => {
   const { userDb, isFetching } = useUserContext();
   const [username, setUsername] = useState<string>('');
-  const [country, setCountry] = useState<string>('');
   const [city, setCity] = useState<string>('');
   const [appPin, setAppPin] = useState<string>('');
 
@@ -18,7 +17,8 @@ const Account: React.FC = () => {
   useEffect(() => {
     if (userDb) {
       setUsername(userDb.username);
-      if (userDb.origin) setCountry(userDb.origin);
+      if (userDb.origin) setCity(userDb.origin);
+      if (userDb.mobilePassword) setAppPin(userDb.mobilePassword);
     }
   }, [userDb]);
 
@@ -35,7 +35,7 @@ const Account: React.FC = () => {
     if (userDb) {
       const data = {
         username: username,
-        origin: country,
+        origin: city,
         mobilePassword: appPin,
       };
 
@@ -66,20 +66,10 @@ const Account: React.FC = () => {
             </div>
             <div className={styles.form_input}>
               <div className={styles.form_input_header}>
-                <label>Country</label>
-                <span>Optional</span>
-              </div>
-              <input
-                value={country}
-                onChange={(e) => setCountry(e.target.value)}
-              />
-            </div>
-            <div className={styles.form_input}>
-              <div className={styles.form_input_header}>
                 <label>City</label>
                 <span>Optional</span>
               </div>
-              <input onChange={(e) => setCity(e.target.value)} />
+              <input value={city} onChange={(e) => setCity(e.target.value)} />
             </div>
             <div className={styles.form_input}>
               <div className={styles.form_input_header}>

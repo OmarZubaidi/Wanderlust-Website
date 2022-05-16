@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from '../styles/Navbar.module.scss';
 import Link from 'next/link';
 import { useAuth0 } from '@auth0/auth0-react';
+import Image from 'next/image';
 
 export const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -36,7 +37,8 @@ export const Navbar: React.FC = () => {
                 className={styles.logout}
                 onClick={() => logout({ returnTo: 'http://localhost:3000' })}
               >
-                Logout
+                <span>Logout</span>
+                <Image src={'/assets/logout.svg'} width={20} height={20} />
               </a>
             </div>
             <button

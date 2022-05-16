@@ -5,23 +5,17 @@ import { Trip } from '../../../types/trip.type';
 
 type EventItemProps = {
   e: EventType;
-  startDate: string;
-  endDate: string;
-  setStartDate: (value: string) => void;
-  setEndDate: (value: string) => void;
   handleSubmit: (event: EventType) => Promise<boolean>;
   trip: Trip;
 };
 
 export const EventItem: React.FC<EventItemProps> = ({
   e,
-  startDate,
-  endDate,
-  setStartDate,
-  setEndDate,
   handleSubmit,
   trip,
 }) => {
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
   const [formOpen, setFormOpen] = useState(false);
 
   const handleSingleSubmit = async (submitEvent: any) => {
@@ -48,7 +42,7 @@ export const EventItem: React.FC<EventItemProps> = ({
         style={{ backgroundImage: `url(${e.pictures})` }}
       ></div>
       <h3>{e.title}</h3>
-      <p>{e.description}</p>
+      <p>{e.description.slice(0, 100) + '...'}</p>
       <div className={styles.eventFooter}>
         <a
           target='_blank'

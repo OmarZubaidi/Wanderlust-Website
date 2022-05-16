@@ -15,7 +15,6 @@ export const eventsServiceGetEvents = async () => {
 export const eventsServiceCreateEvent = async (
   event: EventType
 ): Promise<EventType> => {
-  console.log('EVENT------', event);
   try {
     const response = await fetch(serverUrl + '/events', {
       method: 'POST',

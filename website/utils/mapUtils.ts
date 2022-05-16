@@ -2,12 +2,30 @@ import L from 'leaflet';
 import { EventType } from '../types/event.type';
 import { Hotel } from '../types/hotel.type';
 
-export const barcelonaMarker = () => {
+export const eventMarker = () => {
   return L.icon({
-    iconUrl: '/assets/Barcelona.png',
-    iconSize: [40, 60], // size of the icon
-    iconAnchor: [20, 60], // point of the icon which will correspond to marker's location
-    popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
+    iconUrl: '/assets/marker-event.svg',
+    iconSize: [50, 50], // size of the icon
+    iconAnchor: [20, 50], // point of the icon which will correspond to marker's location
+    popupAnchor: [5, -45], // point from which the popup should open relative to the iconAnchor
+  });
+};
+
+export const hotelMarker = () => {
+  return L.icon({
+    iconUrl: '/assets/marker-hotel.svg',
+    iconSize: [50, 50], // size of the icon
+    iconAnchor: [20, 50], // point of the icon which will correspond to marker's location
+    popupAnchor: [5, -45], // point from which the popup should open relative to the iconAnchor
+  });
+};
+
+export const restaurantMarker = () => {
+  return L.icon({
+    iconUrl: '/assets/marker-restaurant.svg',
+    iconSize: [50, 50], // size of the icon
+    iconAnchor: [20, 40], // point of the icon which will correspond to marker's location
+    popupAnchor: [4, -20], // point from which the popup should open relative to the iconAnchor
   });
 };
 
@@ -50,7 +68,7 @@ export const createMarker = (
   const marker = L.marker([eventItem.latitude, eventItem.longitude], {
     icon,
   }).addTo(map);
-  marker.bindPopup(eventItem.title);
+  marker.bindPopup(`<h1>${eventItem.title}</h1>`);
 };
 
 export const createHotelMarker = (hotel: Hotel, icon: L.Icon, map: L.Map) => {

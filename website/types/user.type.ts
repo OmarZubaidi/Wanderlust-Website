@@ -15,4 +15,5 @@ export interface User {
   Hotels?: Hotel[];
   Flights?: Flight[];
   Trips?: Trip[];
+  mobilePassword?: string;
 }
