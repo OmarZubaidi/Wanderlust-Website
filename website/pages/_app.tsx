@@ -6,6 +6,7 @@ import '@fullcalendar/common/main.css';
 import '@fullcalendar/daygrid/main.css';
 import '@fullcalendar/timegrid/main.css';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -14,6 +15,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       domain_env={process.env.DOMAIN!}
       clientId_env={process.env.CLIENT_ID!}
     >
+      <Head>
+        <title>Wanderlust</title>
+      </Head>
       <UserProvider>
         <Component key={router.asPath} {...pageProps} />
       </UserProvider>

@@ -70,10 +70,10 @@ export const createHotelEvent = async (
     end = trip.end;
   }
   const event: EventType = {
-    title: hotel.name,
+    title: desc + ':' + hotel.name,
     start,
     end,
-    allDay: false,
+    allDay: true,
     description: desc,
     location: hotel.location,
     latitude: hotel.latitude,

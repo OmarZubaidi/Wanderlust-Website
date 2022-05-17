@@ -15,6 +15,7 @@ import { useUserContext } from '../../context/userContext';
 import {
   bookGroupFlights,
   createFlightAndConnection,
+  createFlightEvent,
 } from '../../utils/flightsUtils';
 
 export const ReturnFlightFormComponent: React.FC<TripProps> = ({ trip }) => {
@@ -66,7 +67,12 @@ export const ReturnFlightFormComponent: React.FC<TripProps> = ({ trip }) => {
         userDb!.id!
       ))
     ) {
-      await createFlightAndConnection(startFlight, userDb!.id!, trip.id!);
+      const departureFlight = await createFlightAndConnection(
+        startFlight,
+        userDb!.id!,
+        trip.id!
+      );
+      await createFlightEvent(departureFlight, 'Departure flight', trip.id!);
     }
 
     if (
@@ -77,7 +83,12 @@ export const ReturnFlightFormComponent: React.FC<TripProps> = ({ trip }) => {
         userDb!.id!
       ))
     ) {
-      await createFlightAndConnection(selectedFlight!, userDb!.id!, trip.id!);
+      const returnFlight = await createFlightAndConnection(
+        selectedFlight!,
+        userDb!.id!,
+        trip.id!
+      );
+      await createFlightEvent(returnFlight, 'Return flight', trip.id!);
     }
     router.push(`/dashboard/flight/${trip.id}`);
   };

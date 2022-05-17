@@ -1,5 +1,6 @@
 import L from 'leaflet';
 import { EventType } from '../types/event.type';
+import { Flight } from '../types/flight.type';
 import { Hotel } from '../types/hotel.type';
 
 export const eventMarker = () => {
@@ -23,6 +24,15 @@ export const hotelMarker = () => {
 export const restaurantMarker = () => {
   return L.icon({
     iconUrl: '/assets/marker-restaurant.svg',
+    iconSize: [50, 50], // size of the icon
+    iconAnchor: [20, 40], // point of the icon which will correspond to marker's location
+    popupAnchor: [4, -20], // point from which the popup should open relative to the iconAnchor
+  });
+};
+
+export const flightMarker = () => {
+  return L.icon({
+    iconUrl: '/assets/marker-flight.svg',
     iconSize: [50, 50], // size of the icon
     iconAnchor: [20, 40], // point of the icon which will correspond to marker's location
     popupAnchor: [4, -20], // point from which the popup should open relative to the iconAnchor

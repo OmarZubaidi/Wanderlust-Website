@@ -7,6 +7,7 @@ import {
   createMarker,
   createTileLayer,
   eventMarker,
+  flightMarker,
   hotelMarker,
   onMapClick,
   restaurantMarker,
@@ -29,19 +30,25 @@ const Map = ({ events, trip }: MapProps) => {
     const bcnIcon = eventMarker();
     const hotelIcon = hotelMarker();
     const restaurantIcon = restaurantMarker();
+    const flightIcon = flightMarker();
     const popup = L.popup();
     // map.on('click', (e: any) => onMapClick(e, bcnIcon, map, popup));
+    console.log(events);
     events.forEach((eventItem: EventType) => {
       if (eventItem.type === 'RESTAURANT') {
         createMarker(eventItem, restaurantIcon, map);
+      } else if (eventItem.type === 'FLIGHT') {
+        createMarker(eventItem, flightIcon, map);
+      } else if (eventItem.type === 'HOTEL') {
+        createMarker(eventItem, hotelIcon, map);
       } else {
         createMarker(eventItem, bcnIcon, map);
       }
     });
 
-    trip.Hotels?.forEach((hotel: Hotel) => {
-      createHotelMarker(hotel, hotelIcon, map);
-    });
+    // trip.Hotels?.forEach((hotel: Hotel) => {
+    //   createHotelMarker(hotel, hotelIcon, map);
+    // });
 
     return () => {
       map.remove();

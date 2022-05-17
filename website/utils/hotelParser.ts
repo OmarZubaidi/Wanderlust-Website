@@ -20,7 +20,7 @@ export const hotelParser = (hotels: any[], trip: Trip): Hotel[] => {
       description: hotel.hotel.description?.text || '',
       priceTotal: Math.round(total) * nights,
       hotelApiId: hotel.hotel.hotelId,
-      rating: hotel.hotel.rating,
+      rating: hotel.hotel.rating || '0',
       type: hotel.hotel.type,
     };
   });
