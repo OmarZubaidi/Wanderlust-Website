@@ -54,16 +54,14 @@ export const tripServicegetAllTrips = async (): Promise<Trip[]> => {
   }
 };
 
-export const tripServiceDeleteTrip = async (
-  tripId: number
-): Promise<Trip[]> => {
+export const tripServiceDeleteTrip = async (tripId: number): Promise<Trip> => {
   try {
-    const response = await fetch(serverUrl + `trips/${tripId}`, {
+    const response = await fetch(serverUrl + `/trips/${tripId}`, {
       method: 'DELETE',
     });
     const data = await response.json();
     if (data.status >= 400) throw new Error(data.message);
-    return data as Trip[];
+    return data as Trip;
   } catch (error: any) {
     return error.message;
   }

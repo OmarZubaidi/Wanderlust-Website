@@ -23,7 +23,7 @@ import { AddedFriendsList } from './friendsFormComponents/AddedFriendsList';
 import { useUserContext } from '../../context/userContext';
 
 export const FriendsFormComponent: React.FC = () => {
-  const { userDb } = useUserContext();
+  const { userDb, addTripToUser } = useUserContext();
   const router = useRouter();
   const tripQuery = {
     startDate: router.query.startDate as string,
@@ -103,14 +103,20 @@ export const FriendsFormComponent: React.FC = () => {
 
   const finalizeAndGoToDashboard = async () => {
     const newTrip = await finalize();
+
     if (newTrip) {
-      router.push(`/dashboard/map/${newTrip.id}`);
+      addTripToUser(newTrip);
+      router.replace(`/dashboard/map/${newTrip.id}`);
     }
   };
 
   const finalizeAndGoToFlight = async () => {
     const newTrip = await finalize();
-    if (newTrip) router.push(`/trip/flight/${newTrip.id}`);
+
+    if (newTrip) {
+      addTripToUser(newTrip);
+      router.replace(`/trip/flight/${newTrip.id}`);
+    }
   };
 
   return (
