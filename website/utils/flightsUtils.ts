@@ -1,9 +1,12 @@
 import {
+  createEvent,
   createFlight,
   createUsersFlightTripsConnection,
   getFlightByApiId,
 } from '../services/dbService';
+import { EventType } from '../types/event.type';
 import { Flight, Itinerary } from '../types/flight.type';
+const AIRPORTS = require('../airports.json');
 
 export const checkIfFlightIsOnTrip = (
   flight: Flight,
@@ -64,7 +67,47 @@ export const createFlightAndConnection = async (
       newflight.id,
       tripId
     );
-    return typeof connection !== 'string';
+    return newflight;
   }
   return false;
+};
+
+export const createFlightEvent = async (
+  flight: Flight,
+  desc: string,
+  tripId: number
+) => {
+  const itineraries = JSON.parse(flight.itineraries);
+
+  let latitude = 0;
+  let longitude = 0;
+
+  for (let airport of AIRPORTS) {
+    if (airport.iata_code === itineraries[0].depAirport) {
+      latitude = +airport.latitude_deg;
+      longitude = +airport.longitude_deg;
+      console.log(latitude, longitude);
+      break;
+    }
+  }
+
+  const flightEvent: EventType = {
+    title: flight.departureCity + ' - ' + flight.arrivalCity,
+    description: desc,
+    allDay: false,
+    location: '',
+    latitude,
+    longitude,
+    price: flight.price,
+    eventApiId: Date.now(),
+    type: 'FLIGHT',
+    tripId: tripId,
+    start: new Date(itineraries[0].departure),
+    end: new Date(itineraries[itineraries.length - 1].arrival),
+    rating: 0,
+    pictures: '',
+    bookingLink: '',
+  };
+
+  return await createEvent(flightEvent);
 };

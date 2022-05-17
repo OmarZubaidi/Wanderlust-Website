@@ -15,6 +15,12 @@ export const Navbar: React.FC = () => {
     <div className={styles.navbar_container}>
       <nav className={styles.navbar}>
         <h1 className={styles.logo}>
+          <Image
+            className={styles.logoImg}
+            src={'/assets/Logo.png'}
+            width={30}
+            height={40}
+          />
           <Link href={'/'}>
             <a>Wanderlust</a>
           </Link>

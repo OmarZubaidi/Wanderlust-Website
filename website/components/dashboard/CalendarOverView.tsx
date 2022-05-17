@@ -8,20 +8,25 @@ import styles from '../../styles/dashboard/calendar.module.scss';
 import { TripProps } from '../../types/tripProp';
 import { EventType } from '../../types/event.type';
 import { deleteEvent, updateEvent } from '../../services/dbService';
+import {
+  deleteRandomEvents,
+  randomItinerary,
+} from '../../utils/randomItinerary';
 
 type CalendarProps = TripProps & {
-  events: EventType[];
+  allEvents: EventType[];
+  router: any;
 };
 
 class CalendarOverView extends React.Component {
-  constructor(props: TripProps) {
+  constructor(props: CalendarProps) {
     super(props);
   }
   state = {
     weekendsVisible: true,
     currentEvents: this.props.trip.Events.map((event: EventType) => {
       return {
-        // allDay: event.allDay,
+        allDay: event.allDay,
         id: event.id,
         start: event.start,
         end: event.end,
@@ -30,9 +35,21 @@ class CalendarOverView extends React.Component {
     }),
   };
 
+  getRandomItinerary = async () => {
+    await deleteRandomEvents(this.props.trip.Events);
+    await randomItinerary(this.props.trip, this.props.allEvents);
+    this.props.router.reload();
+  };
+
   render() {
     return (
       <div className={styles.container}>
+        <button
+          onClick={this.getRandomItinerary}
+          className={'button ' + styles.randomButton}
+        >
+          Random Itinerary
+        </button>
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           headerToolbar={{
@@ -40,7 +57,7 @@ class CalendarOverView extends React.Component {
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay',
           }}
-          initialView='dayGridMonth'
+          initialView='timeGridWeek'
           initialDate={this.props.trip.start.slice(0, -14)}
           editable={true}
           height={'59vh'}
