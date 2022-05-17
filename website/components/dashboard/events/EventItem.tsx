@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { EventType } from '../../../types/event.type';
 import styles from '../../../styles/dashboard/events.module.scss';
 import { Trip } from '../../../types/trip.type';
+import { start } from 'repl';
 
 type EventItemProps = {
   e: EventType;
