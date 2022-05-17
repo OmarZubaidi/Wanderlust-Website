@@ -22,27 +22,14 @@ type Props = TripProps & {
 
 const DashboardMap: React.FC<Props> = ({ trip, events }) => {
   const { isLoading } = useAuth0();
-  const [tripsInSync, setTripsInSync] = useState<Trip[]>([]);
-  const { userDb, isFetching, refetchUser } = useUserContext();
+  const { userDb, isFetching } = useUserContext();
   const router = useRouter();
 
   if (isLoading || isFetching) return <Loading />;
 
-  // useEffect(() => {
-  //   if (userDb?.Trips?.map((t) => t.id).includes(trip.id)) {
-  //     return;
-  //   } else {
-  //     router.reload();
-  //   }
-  // }, [trip]);
-
-  const trips = userDb?.Trips?.map((t) => t.id).includes(trip.id)
-    ? userDb?.Trips!
-    : [...userDb?.Trips!, trip];
-
   return (
     <>
-      <DashboardComponent trips={trips}>
+      <DashboardComponent trips={userDb?.Trips || []}>
         <div>
           <TripNavigation trip={trip} />
           <DynamicMap events={events} trip={trip} />

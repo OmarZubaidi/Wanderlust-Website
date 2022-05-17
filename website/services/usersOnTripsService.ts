@@ -43,3 +43,24 @@ export const userOnTripServiceCreate = async (
     return error.message;
   }
 };
+
+export const userOnTripServiceDelete = async (
+  userId: number,
+  tripId: number
+) => {
+  try {
+    const response = await fetch(serverUrl + '/users-on-trips/delete', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userId, tripId }),
+    });
+
+    const data = await response.json();
+    if (data.status >= 400) throw new Error(data.message);
+    return data as UsersOnTrips[];
+  } catch (error: any) {
+    return error.message;
+  }
+};

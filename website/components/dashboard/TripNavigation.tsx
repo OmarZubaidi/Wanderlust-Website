@@ -6,6 +6,8 @@ import { deleteCachedFlight } from '../../utils/localStorage';
 import { useRouter } from 'next/router';
 import { format } from 'date-fns';
 import { TripProps } from '../../types/tripProp';
+import { deleteTrip, deleteUserOnTrip } from '../../services/dbService';
+import { useUserContext } from '../../context/userContext';
 
 export const TripNavigation: React.FC<TripProps> = ({ trip }) => {
   const router = useRouter();
@@ -15,14 +17,22 @@ export const TripNavigation: React.FC<TripProps> = ({ trip }) => {
   const hotelsBlue = router.pathname.includes('hotel') ? 'Blue' : '';
   const eventsBlue = router.pathname.includes('events') ? 'Blue' : '';
   const [menuOpen, setMenuOpen] = useState(false);
+  const { userDb, deleteTripToUser } = useUserContext();
 
   const goToAddFriends = () => {
     router.push(`/group/${trip.id}`);
   };
 
-  const exitGroup = () => {
+  const exitGroup = async () => {
     // TODO exit the group
-    router.reload();
+    await deleteUserOnTrip(userDb!.id!, trip.id!);
+    if (trip.Users?.length === 1) {
+      await deleteTrip(trip.id!);
+      deleteTripToUser(trip.id!);
+      router.replace('/dashboard', { query: { deletedTrip: trip.id } });
+    } else {
+      router.reload();
+    }
   };
 
   return (
@@ -69,10 +79,7 @@ export const TripNavigation: React.FC<TripProps> = ({ trip }) => {
                       height={22}
                     />
                   </button>
-                  <button
-                    onClick={goToAddFriends}
-                    className={styles.menuButtonItem}
-                  >
+                  <button onClick={exitGroup} className={styles.menuButtonItem}>
                     <span className={styles.textMenu}>Exit group</span>
                     <Image src={'/assets/exit.svg'} width={22} height={22} />
                   </button>

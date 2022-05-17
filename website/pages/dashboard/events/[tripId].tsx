@@ -34,12 +34,9 @@ const DashboardEvents: React.FC<EventsProps> = ({
   const { isLoading } = useAuth0();
 
   if (isLoading || isFetching) return <Loading />;
-  const trips = userDb?.Trips?.map((t) => t.id).includes(trip.id)
-    ? userDb?.Trips!
-    : [...userDb?.Trips!, trip];
 
   return (
-    <DashboardComponent trips={trips}>
+    <DashboardComponent trips={userDb?.Trips || []}>
       <div>
         <TripNavigation trip={trip} />
         <EventsComponent

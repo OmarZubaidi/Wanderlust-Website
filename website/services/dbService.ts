@@ -27,6 +27,7 @@ import { userOnFlightsCreateConnection } from './usersOnFlightsService';
 import { UOHServiceCreateConnectionUsersHotelsTrip } from './usersOnHotels';
 import {
   userOnTripServiceCreate,
+  userOnTripServiceDelete,
   usersOnTripsServiceCreate,
 } from './usersOnTripsService';
 
@@ -44,6 +45,7 @@ const deleteTrip = tripServiceDeleteTrip;
 // connecting users <=> trips
 const createUsersOnTrips = usersOnTripsServiceCreate;
 const createUserOnTrip = userOnTripServiceCreate;
+const deleteUserOnTrip = userOnTripServiceDelete;
 
 //flights
 const createFlight = flightServiceCreateFlight;
@@ -86,4 +88,5 @@ export {
   deleteTrip,
   updateEvent,
   deleteEvent,
+  deleteUserOnTrip,
 };

@@ -7,7 +7,8 @@ import { User } from '../types/user.type';
 type UserContextType = {
   userDb: User | undefined;
   isFetching: boolean;
-  refetchUser: () => void;
+  addTripToUser: (trip: Trip) => void;
+  deleteTripToUser: (tripId: number) => void;
 };
 
 const UserContext = createContext<UserContextType>({
@@ -19,7 +20,8 @@ const UserContext = createContext<UserContextType>({
     pictureUrl: '',
   },
   isFetching: false,
-  refetchUser: () => {},
+  addTripToUser: () => {},
+  deleteTripToUser: () => {},
 });
 type Props = {
   children?: React.ReactNode;
@@ -53,13 +55,21 @@ export const UserProvider: React.FC<Props> = ({ children }) => {
     }
   };
 
-  const refetchUser = async () => {
-    if (userDb && userDb.id) {
-      const refetchedUser = await getUserById(userDb.id);
-      if (typeof refetchedUser !== 'string') {
-        setUserDb(refetchedUser);
-      }
-    }
+  const addTripToUser = (trip: Trip) => {
+    setUserDb({
+      ...userDb!,
+      Trips: [trip, ...userDb?.Trips!],
+    });
+  };
+
+  const deleteTripToUser = (tripId: number) => {
+    const filteredTrips = userDb?.Trips!.filter(
+      (trip: Trip) => trip.id !== tripId
+    );
+    setUserDb({
+      ...userDb!,
+      Trips: filteredTrips,
+    });
   };
 
   useEffect(() => {
@@ -68,7 +78,9 @@ export const UserProvider: React.FC<Props> = ({ children }) => {
   }, [user]);
 
   return (
-    <UserContext.Provider value={{ userDb, isFetching, refetchUser }}>
+    <UserContext.Provider
+      value={{ userDb, isFetching, addTripToUser, deleteTripToUser }}
+    >
       {children}
     </UserContext.Provider>
   );
