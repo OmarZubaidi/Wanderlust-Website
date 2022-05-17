@@ -17,7 +17,6 @@ export const flightServiceGetFlightByApiId = async (
 
 export const flightServiceCreateFlight = async (flight: Flight) => {
   try {
-    console.log('flight', flight);
     const response = await fetch(serverUrl + '/flights', {
       method: 'POST',
       headers: {

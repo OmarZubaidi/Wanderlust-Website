@@ -1,9 +1,12 @@
 import {
+  createEvent,
   createHotel,
   createUsersTripHotelConnection,
   getHotelByAPiId,
 } from '../services/dbService';
+import { EventType } from '../types/event.type';
 import { Hotel } from '../types/hotel.type';
+import { Trip } from '../types/trip.type';
 
 export const checkHotelInTrip = (hotel: Hotel, tripId: number) => {
   for (let entry of hotel.UsersOnHotels!) {
@@ -29,7 +32,7 @@ export const bookGroupHotels = async (
           tripId,
           hotelToBook.id!
         );
-        console.log('RESPONSE', response);
+
         return typeof response !== 'string';
       }
     }
@@ -49,7 +52,40 @@ export const createHotelAndConnection = async (
       tripId,
       newHotel.id!
     );
-    return typeof connection !== 'string';
+    return newHotel;
   }
   return false;
+};
+
+export const createHotelEvent = async (
+  hotel: Hotel,
+  trip: Trip,
+  desc: string
+) => {
+  let start = trip.start;
+  let end = trip.start;
+  let eventApiId = Date.now();
+  if (desc === 'check-out') {
+    start = trip.end;
+    end = trip.end;
+  }
+  const event: EventType = {
+    title: hotel.name,
+    start,
+    end,
+    allDay: false,
+    description: desc,
+    location: hotel.location,
+    latitude: hotel.latitude,
+    longitude: hotel.longitude,
+    price: hotel.priceTotal,
+    eventApiId,
+    bookingLink: '',
+    type: 'HOTEL',
+    pictures: '',
+    rating: +hotel.rating,
+    tripId: trip.id,
+  };
+  const res = await createEvent(event);
+  return res;
 };

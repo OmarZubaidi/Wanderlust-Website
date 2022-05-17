@@ -49,7 +49,6 @@ export const onMapClick = (
   map: L.Map,
   popup: L.Popup
 ) => {
-  console.log(e.latlng);
   var marker = L.marker([e.latlng.lat, e.latlng.lng], {
     icon,
   }).addTo(map);
