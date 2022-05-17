@@ -4,13 +4,11 @@ import styles from '../../styles/forms/hotelForm.module.scss';
 import { Hotel } from '../../types/hotel.type';
 import { hotelSearch } from '../../utils/amadeus';
 import { hotelParser } from '../../utils/hotelParser';
-import { format } from 'date-fns';
-import Image from 'next/image';
-import { LittleLoading } from '../LittleLoading';
 import { citycode } from '../../utils/citycodes';
 import {
   bookGroupHotels,
   createHotelAndConnection,
+  createHotelEvent,
 } from '../../utils/hotelUtils';
 import { useUserContext } from '../../context/userContext';
 import { useRouter } from 'next/router';
@@ -45,7 +43,15 @@ export const HotelFormComponent: React.FC<TripProps> = ({ trip }) => {
         userDb!.id!
       ))
     ) {
-      await createHotelAndConnection(selectedHotel!, userDb!.id!, trip.id!);
+      const newHotel = await createHotelAndConnection(
+        selectedHotel!,
+        userDb!.id!,
+        trip.id!
+      );
+      if (newHotel && newHotel.id) {
+        await createHotelEvent(newHotel, trip, 'check-in');
+        await createHotelEvent(newHotel, trip, 'check-out');
+      }
       router.push(`/dashboard/hotel/${trip.id}`);
     }
   };

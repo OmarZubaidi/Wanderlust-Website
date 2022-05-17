@@ -30,19 +30,6 @@ class CalendarOverView extends React.Component {
     }),
   };
 
-  // componentDidMount() {
-  //   this.eventsWithoutZ = this.state.currentEvents;
-  //   this.eventsWithoutZ = this.eventsWithoutZ.map((event: EventType) => {
-  //     return {
-  //       // allDay: event.allDay,
-  //       date: event.start.slice(0, -14),
-  //       // end: event.end.slice(0, -1),
-  //       title: event.title,
-  //     };
-  //   });
-  //   console.log(this.eventsWithoutZ);
-  // }
-
   render() {
     return (
       <div className={styles.container}>
@@ -68,12 +55,6 @@ class CalendarOverView extends React.Component {
           // eventsSet={this.handleEvents} // called after events are initialized/added/changed/removed
           // eventAdd={this.handleEvents}
           eventChange={async (event: any) => {
-            console.log(
-              +event.event.id,
-              new Date(event.event.startStr).toISOString(),
-              new Date(event.event.endStr).toISOString()
-            );
-
             await updateEvent(
               +event.event.id,
               new Date(event.event.startStr).toISOString(),

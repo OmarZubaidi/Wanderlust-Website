@@ -2,7 +2,6 @@ import { Hotel } from '../types/hotel.type';
 import { Trip } from '../types/trip.type';
 
 export const hotelParser = (hotels: any[], trip: Trip): Hotel[] => {
-  console.log({ end: trip.end, start: trip.start });
   const endDate = new Date(trip.end);
   const startDate = new Date(trip.start);
   const nights = Math.floor((+endDate - +startDate) / (24 * 60 * 60 * 1000));

@@ -8,7 +8,6 @@ export const userOnFlightsCreateConnection = async (
   tripId: number
 ): Promise<UsersOnFlights> => {
   try {
-    console.log({ userId, flightId, tripId });
     const response = await fetch(serverUrl + '/users-on-flights', {
       method: 'POST',
       headers: {

@@ -11,7 +11,6 @@ export const flightOffersSearch = (
   departureDate: string,
   budget: string
 ): Promise<any> => {
-  console.log(originLocationCode, destinationLocationCode, departureDate);
   return amadeus.shopping.flightOffersSearch
     .get({
       originLocationCode,
@@ -84,7 +83,6 @@ export const hotelSearch = (cityCode: string, budget: string): Promise<any> => {
 };
 
 export const altHotelSearch = (cityCode: string): Promise<any> => {
-  console.log(cityCode);
   return amadeus.client
     .get('/v1/reference-data/locations/hotels/by-city', {
       cityCode,
