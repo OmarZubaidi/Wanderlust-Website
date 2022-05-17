@@ -1,6 +1,8 @@
 import {
   eventsServiceCreateEvent,
+  eventsServiceDeleteEvent,
   eventsServiceGetEvents,
+  eventsServiceUpdateEvent,
 } from './eventsService';
 import {
   flightServiceCreateFlight,
@@ -12,6 +14,7 @@ import {
 } from './hotelsService';
 import {
   tripServiceCreateTrip,
+  tripServiceDeleteTrip,
   tripServicegetAllTrips,
   tripServiceGetTrip,
 } from './tripService';
@@ -36,6 +39,7 @@ const getUserById = userServiceGetById;
 const createTrip = tripServiceCreateTrip;
 const getAllTrips = tripServicegetAllTrips;
 const getTrip = tripServiceGetTrip;
+const deleteTrip = tripServiceDeleteTrip;
 
 // connecting users <=> trips
 const createUsersOnTrips = usersOnTripsServiceCreate;
@@ -55,6 +59,8 @@ const createUsersTripHotelConnection =
 // Events
 const getEvents = eventsServiceGetEvents;
 const createEvent = eventsServiceCreateEvent;
+const updateEvent = eventsServiceUpdateEvent;
+const deleteEvent = eventsServiceDeleteEvent;
 
 // Hotels
 const getHotelByAPiId = hotelsServiceGetHotelByApiId;
@@ -77,4 +83,7 @@ export {
   createUsersTripHotelConnection,
   createEvent,
   createUserOnTrip,
+  deleteTrip,
+  updateEvent,
+  deleteEvent,
 };

@@ -24,6 +24,7 @@
 .eventItem {
   border-radius: 10px;
   width: calc((100% / 3) - 30px);
+  height: 350px;
   margin: 15px;
   display: flex;
   align-items: flex-start;
@@ -48,7 +49,7 @@
     font-size: 12px;
     max-height: 80px;
     margin: 10px 0 15px;
-    overflow-y: auto;
+    // overflow-y: auto;
     line-height: 14px;
   }
 
@@ -57,7 +58,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-
+    margin-top: auto;
     align-items: center;
 
     .book {
