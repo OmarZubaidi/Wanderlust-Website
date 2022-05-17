@@ -23,8 +23,8 @@ class CalendarOverView extends React.Component {
       return {
         // allDay: event.allDay,
         id: event.id,
-        start: event.start.slice(0, -1),
-        end: event.end.slice(0, -1),
+        start: event.start,
+        end: event.end,
         title: event.title,
       };
     }),
