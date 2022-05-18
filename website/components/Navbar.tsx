@@ -52,6 +52,7 @@ export const Navbar: React.FC = () => {
               className='avatar'
               style={{
                 background: `url(${user?.picture})`,
+                // background: `url(https://avatars.githubusercontent.com/u/84531855?v=4)`,
                 backgroundSize: 'contain',
               }}
             ></button>
