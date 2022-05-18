@@ -6,15 +6,12 @@ import { DashboardComponent } from '../../../components/dashboard/DashboardCompo
 import { TripNavigation } from '../../../components/dashboard/TripNavigation';
 import { Loading } from '../../../components/Loading';
 import { useUserContext } from '../../../context/userContext';
-import { getEvents, getTrip } from '../../../services/dbService';
+import { getTrip } from '../../../services/dbService';
 import { EventType } from '../../../types/event.type';
 import { TripProps } from '../../../types/tripProp';
 import { getAmadeusEvents } from '../../../utils/amadeus';
 import { eventParser } from '../../../utils/eventParser';
-import {
-  getStaticTripPaths,
-  getStaticTripProps,
-} from '../../../utils/getStatic';
+import { getStaticTripPaths } from '../../../utils/getStatic';
 
 const DynamicCalendar = dynamic(
   //@ts-ignore

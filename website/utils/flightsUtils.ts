@@ -86,7 +86,6 @@ export const createFlightEvent = async (
     if (airport.iata_code === itineraries[0].depAirport) {
       latitude = +airport.latitude_deg;
       longitude = +airport.longitude_deg;
-      console.log(latitude, longitude);
       break;
     }
   }

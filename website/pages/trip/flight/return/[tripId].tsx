@@ -1,6 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import React from 'react';
-import { ReturnFlightFormComponent } from '../../../../components/forms/returnFlightFormComponent';
+import { ReturnFlightFormComponent } from '../../../../components/forms/ReturnFlightFormComponent';
 import { Loading } from '../../../../components/Loading';
 import { getAllTrips, getTrip } from '../../../../services/dbService';
 import { TripProps } from '../../../../types/tripProp';
