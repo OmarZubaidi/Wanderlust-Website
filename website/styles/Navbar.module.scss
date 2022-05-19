@@ -15,6 +15,11 @@
   color: $darkTextColor;
   font-weight: 800;
   font-size: 22px;
+  display: flex;
+  align-items: center;
+  a {
+    margin-left: 10px;
+  }
 }
 
 .navbar_container {
@@ -23,4 +28,9 @@
 
 .logout {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  span {
+    margin-right: 10px;
+  }
 }

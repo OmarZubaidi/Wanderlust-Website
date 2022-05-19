@@ -16,8 +16,9 @@ const DashboardHotel: React.FC<TripProps> = ({ trip }) => {
   const { userDb, isFetching } = useUserContext();
 
   if (isLoading || isFetching) return <Loading />;
+
   return (
-    <DashboardComponent trips={userDb?.Trips!}>
+    <DashboardComponent trips={userDb?.Trips || []}>
       <div>
         <TripNavigation trip={trip} />
         <HotelOverView trip={trip} />

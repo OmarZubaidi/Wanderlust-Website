@@ -1,0 +1,279 @@
+{
+  "data": [
+    {
+      "type": "location",
+      "subType": "POINT_OF_INTEREST",
+      "id": "9CB40CB5D0",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/pois/9CB40CB5D0",
+        "methods": ["GET"]
+      },
+      "geoCode": {
+        "latitude": 41.39165,
+        "longitude": 2.164772
+      },
+      "name": "Casa Batlló",
+      "category": "SIGHTS",
+      "rank": 5,
+      "tags": [
+        "sightseeing",
+        "sights",
+        "museum",
+        "landmark",
+        "tourguide",
+        "restaurant",
+        "attraction",
+        "activities",
+        "commercialplace",
+        "shopping",
+        "souvenir"
+      ]
+    },
+    {
+      "type": "location",
+      "subType": "POINT_OF_INTEREST",
+      "id": "5F48B525B3",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/pois/5F48B525B3",
+        "methods": ["GET"]
+      },
+      "geoCode": {
+        "latitude": 41.387573,
+        "longitude": 2.175313
+      },
+      "name": "Palau de la Música Catalana",
+      "category": "SIGHTS",
+      "rank": 5,
+      "tags": [
+        "sightseeing",
+        "landmark",
+        "tourguide",
+        "activities",
+        "attraction",
+        "events",
+        "theater",
+        "musicvenue",
+        "sights",
+        "commercialplace"
+      ]
+    },
+    {
+      "type": "location",
+      "subType": "POINT_OF_INTEREST",
+      "id": "6035E12F63",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/pois/6035E12F63",
+        "methods": ["GET"]
+      },
+      "geoCode": {
+        "latitude": 41.381752,
+        "longitude": 2.183442
+      },
+      "name": "Can Paixano",
+      "category": "RESTAURANT",
+      "rank": 15,
+      "tags": [
+        "restaurant",
+        "tapas",
+        "cheap",
+        "bar",
+        "sightseeing",
+        "shopping",
+        "transport",
+        "activities"
+      ]
+    },
+    {
+      "type": "location",
+      "subType": "POINT_OF_INTEREST",
+      "id": "FE0693CF7A",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/pois/FE0693CF7A",
+        "methods": ["GET"]
+      },
+      "geoCode": {
+        "latitude": 41.38504,
+        "longitude": 2.167985
+      },
+      "name": "Teresa Carles",
+      "category": "RESTAURANT",
+      "rank": 15,
+      "tags": [
+        "restaurant",
+        "vegetarian",
+        "market",
+        "bar",
+        "liquor",
+        "professionalservices",
+        "transport",
+        "health&medical",
+        "sightseeing",
+        "commercialplace"
+      ]
+    },
+    {
+      "type": "location",
+      "subType": "POINT_OF_INTEREST",
+      "id": "60F67DD77C",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/pois/60F67DD77C",
+        "methods": ["GET"]
+      },
+      "geoCode": {
+        "latitude": 41.37523,
+        "longitude": 2.156781
+      },
+      "name": "Tickets",
+      "category": "RESTAURANT",
+      "rank": 15,
+      "tags": [
+        "restaurant",
+        "tapas",
+        "sightseeing",
+        "bar",
+        "activities",
+        "commercialplace"
+      ]
+    },
+    {
+      "type": "location",
+      "subType": "POINT_OF_INTEREST",
+      "id": "03FB5FCB87",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/pois/03FB5FCB87",
+        "methods": ["GET"]
+      },
+      "geoCode": {
+        "latitude": 41.36851,
+        "longitude": 2.160139
+      },
+      "name": "Fundació Joan Miró",
+      "category": "SIGHTS",
+      "rank": 30,
+      "tags": [
+        "museum",
+        "sightseeing",
+        "restaurant",
+        "tourguide",
+        "artgallerie",
+        "sights",
+        "transport",
+        "bus",
+        "attraction",
+        "activities",
+        "busstation",
+        "commercialplace"
+      ]
+    },
+    {
+      "type": "location",
+      "subType": "POINT_OF_INTEREST",
+      "id": "4690B83DCA",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/pois/4690B83DCA",
+        "methods": ["GET"]
+      },
+      "geoCode": {
+        "latitude": 41.397987,
+        "longitude": 2.161159
+      },
+      "name": "La Pepita",
+      "category": "RESTAURANT",
+      "rank": 30,
+      "tags": [
+        "restaurant",
+        "tapas",
+        "pub",
+        "bar",
+        "sightseeing",
+        "commercialplace"
+      ]
+    },
+    {
+      "type": "location",
+      "subType": "POINT_OF_INTEREST",
+      "id": "3EF139D861",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/pois/3EF139D861",
+        "methods": ["GET"]
+      },
+      "geoCode": {
+        "latitude": 41.38827,
+        "longitude": 2.161604
+      },
+      "name": "Brunch & Cake",
+      "category": "RESTAURANT",
+      "rank": 30,
+      "tags": [
+        "vegetarian",
+        "restaurant",
+        "breakfast",
+        "shopping",
+        "bakery",
+        "transport",
+        "patio",
+        "garden"
+      ]
+    },
+    {
+      "type": "location",
+      "subType": "POINT_OF_INTEREST",
+      "id": "5CD47D35C4",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/pois/5CD47D35C4",
+        "methods": ["GET"]
+      },
+      "geoCode": {
+        "latitude": 41.387016,
+        "longitude": 2.18187
+      },
+      "name": "Museu de la Xocolata",
+      "category": "SIGHTS",
+      "rank": 30,
+      "tags": [
+        "museum",
+        "sightseeing",
+        "tourguide",
+        "sights",
+        "attraction",
+        "commercialplace",
+        "activities"
+      ]
+    },
+    {
+      "type": "location",
+      "subType": "POINT_OF_INTEREST",
+      "id": "AB3F122E3E",
+      "self": {
+        "href": "https://test.api.amadeus.com/v1/reference-data/locations/pois/AB3F122E3E",
+        "methods": ["GET"]
+      },
+      "geoCode": {
+        "latitude": 41.392376,
+        "longitude": 2.160919
+      },
+      "name": "Cervecería Catalana",
+      "category": "RESTAURANT",
+      "rank": 30,
+      "tags": [
+        "restaurant",
+        "tapas",
+        "sightseeing",
+        "traditionalcuisine",
+        "bar",
+        "activities",
+        "commercialplace"
+      ]
+    }
+  ],
+  "meta": {
+    "count": 336,
+    "links": {
+      "self": "https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=41.3837315&longitude=2.169104&radius=2",
+      "next": "https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=41.3837315&longitude=2.169104&radius=2&page[offset]=10&page[limit]=10",
+      "last": "https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=41.3837315&longitude=2.169104&radius=2&page[offset]=330&page[limit]=10",
+      "first": "https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=41.3837315&longitude=2.169104&radius=2&page[offset]=0&page[limit]=10",
+      "up": "https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=41.3837315&longitude=2.169104&radius=2"
+    }
+  }
+}

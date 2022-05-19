@@ -8,4 +8,8 @@ export const citycode: citycodeType = {
   paris: 'PAR',
   berlin: 'BER',
   naples: 'NAP',
+  vienna: 'VIE',
+  dubai: 'DXB',
+  milan: 'MIL',
+  amsterdam: 'AMS',
 };

@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import React from 'react';
 import styles from '../../../styles/forms/tripForm.module.scss';
 
@@ -18,6 +19,7 @@ export const DepartureInput: React.FC<DepartureInputProps> = ({
         className={styles.input_field}
         id='departure'
         type='date'
+        min={format(new Date(), 'yyyy-MM-dd')}
         value={startDate}
         onChange={(e) => handleChange('startDate', e.target.value)}
       />

@@ -1,0 +1,1143 @@
+{
+  "data": [
+    {
+      "type": "flight-offer",
+      "id": "1",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2022-05-14",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT2H35M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "BER",
+                "terminal": "1",
+                "at": "2022-05-30T21:55:00"
+              },
+              "arrival": {
+                "iataCode": "BCN",
+                "terminal": "1",
+                "at": "2022-05-31T00:30:00"
+              },
+              "carrierCode": "VY",
+              "number": "1885",
+              "aircraft": {
+                "code": "32A"
+              },
+              "operating": {
+                "carrierCode": "VY"
+              },
+              "duration": "PT2H35M",
+              "id": "9",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "84.15",
+        "base": "53.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "84.15"
+      },
+      "pricingOptions": {
+        "fareType": ["PUBLISHED"],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": ["VY"],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "EUR",
+            "total": "84.15",
+            "base": "53.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "9",
+              "cabin": "ECONOMY",
+              "fareBasis": "OWLOPT",
+              "class": "O",
+              "includedCheckedBags": {
+                "weight": 25,
+                "weightUnit": "KG"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "2",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2022-05-14",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT2H40M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "BER",
+                "terminal": "1",
+                "at": "2022-05-30T18:45:00"
+              },
+              "arrival": {
+                "iataCode": "BCN",
+                "terminal": "1",
+                "at": "2022-05-30T21:25:00"
+              },
+              "carrierCode": "VY",
+              "number": "1883",
+              "aircraft": {
+                "code": "32A"
+              },
+              "operating": {
+                "carrierCode": "VY"
+              },
+              "duration": "PT2H40M",
+              "id": "10",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "116.15",
+        "base": "85.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "116.15"
+      },
+      "pricingOptions": {
+        "fareType": ["PUBLISHED"],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": ["VY"],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "EUR",
+            "total": "116.15",
+            "base": "85.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "10",
+              "cabin": "ECONOMY",
+              "fareBasis": "ZWLOPT",
+              "class": "Z",
+              "includedCheckedBags": {
+                "weight": 25,
+                "weightUnit": "KG"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "3",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2022-05-14",
+      "numberOfBookableSeats": 4,
+      "itineraries": [
+        {
+          "duration": "PT2H40M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "BER",
+                "terminal": "1",
+                "at": "2022-05-30T18:45:00"
+              },
+              "arrival": {
+                "iataCode": "BCN",
+                "terminal": "1",
+                "at": "2022-05-30T21:25:00"
+              },
+              "carrierCode": "IB",
+              "number": "5151",
+              "aircraft": {
+                "code": "32A"
+              },
+              "operating": {
+                "carrierCode": "VY"
+              },
+              "duration": "PT2H40M",
+              "id": "11",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "116.15",
+        "base": "85.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "116.15"
+      },
+      "pricingOptions": {
+        "fareType": ["PUBLISHED"],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": ["IB"],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "EUR",
+            "total": "116.15",
+            "base": "85.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "11",
+              "cabin": "ECONOMY",
+              "fareBasis": "SOWNVY",
+              "brandedFare": "BAGSEAT",
+              "class": "S",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "4",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2022-05-14",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT6H50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "BER",
+                "terminal": "1",
+                "at": "2022-05-30T11:05:00"
+              },
+              "arrival": {
+                "iataCode": "ARN",
+                "terminal": "5",
+                "at": "2022-05-30T12:40:00"
+              },
+              "carrierCode": "SK",
+              "number": "2678",
+              "aircraft": {
+                "code": "32N"
+              },
+              "operating": {
+                "carrierCode": "SK"
+              },
+              "duration": "PT1H35M",
+              "id": "14",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "ARN",
+                "terminal": "5",
+                "at": "2022-05-30T14:25:00"
+              },
+              "arrival": {
+                "iataCode": "BCN",
+                "terminal": "1",
+                "at": "2022-05-30T17:55:00"
+              },
+              "carrierCode": "SK",
+              "number": "1811",
+              "aircraft": {
+                "code": "32N"
+              },
+              "operating": {
+                "carrierCode": "SK"
+              },
+              "duration": "PT3H30M",
+              "id": "15",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "117.33",
+        "base": "38.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "117.33",
+        "additionalServices": [
+          {
+            "amount": "30.00",
+            "type": "CHECKED_BAGS"
+          }
+        ]
+      },
+      "pricingOptions": {
+        "fareType": ["PUBLISHED"],
+        "includedCheckedBagsOnly": false
+      },
+      "validatingAirlineCodes": ["SK"],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "EUR",
+            "total": "117.33",
+            "base": "38.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "14",
+              "cabin": "ECONOMY",
+              "fareBasis": "TEOGHT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 0
+              }
+            },
+            {
+              "segmentId": "15",
+              "cabin": "ECONOMY",
+              "fareBasis": "TEOGHT",
+              "brandedFare": "GOLIGHT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "5",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2022-05-14",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT6H10M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "BER",
+                "terminal": "1",
+                "at": "2022-05-30T13:10:00"
+              },
+              "arrival": {
+                "iataCode": "LIS",
+                "terminal": "1",
+                "at": "2022-05-30T15:45:00"
+              },
+              "carrierCode": "TP",
+              "number": "533",
+              "aircraft": {
+                "code": "320"
+              },
+              "operating": {
+                "carrierCode": "TP"
+              },
+              "duration": "PT3H35M",
+              "id": "1",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LIS",
+                "terminal": "1",
+                "at": "2022-05-30T16:30:00"
+              },
+              "arrival": {
+                "iataCode": "BCN",
+                "terminal": "1",
+                "at": "2022-05-30T19:20:00"
+              },
+              "carrierCode": "TP",
+              "number": "1036",
+              "aircraft": {
+                "code": "320"
+              },
+              "operating": {
+                "carrierCode": "TP"
+              },
+              "duration": "PT1H50M",
+              "id": "2",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "118.01",
+        "base": "31.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "118.01",
+        "additionalServices": [
+          {
+            "amount": "39.00",
+            "type": "CHECKED_BAGS"
+          }
+        ]
+      },
+      "pricingOptions": {
+        "fareType": ["PUBLISHED"],
+        "includedCheckedBagsOnly": false
+      },
+      "validatingAirlineCodes": ["TP"],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "EUR",
+            "total": "118.01",
+            "base": "31.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "T15DSC0B",
+              "brandedFare": "DISCOUNT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 0
+              }
+            },
+            {
+              "segmentId": "2",
+              "cabin": "ECONOMY",
+              "fareBasis": "T04DSC0A",
+              "brandedFare": "DISCOUNT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "6",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2022-05-14",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT8H15M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "BER",
+                "terminal": "1",
+                "at": "2022-05-30T17:15:00"
+              },
+              "arrival": {
+                "iataCode": "LIS",
+                "terminal": "1",
+                "at": "2022-05-30T20:10:00"
+              },
+              "carrierCode": "TP",
+              "number": "535",
+              "aircraft": {
+                "code": "E95"
+              },
+              "operating": {
+                "carrierCode": "NI"
+              },
+              "duration": "PT3H55M",
+              "id": "3",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LIS",
+                "terminal": "1",
+                "at": "2022-05-30T22:40:00"
+              },
+              "arrival": {
+                "iataCode": "BCN",
+                "terminal": "1",
+                "at": "2022-05-31T01:30:00"
+              },
+              "carrierCode": "TP",
+              "number": "1032",
+              "aircraft": {
+                "code": "320"
+              },
+              "operating": {
+                "carrierCode": "TP"
+              },
+              "duration": "PT1H50M",
+              "id": "4",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "118.01",
+        "base": "31.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "118.01",
+        "additionalServices": [
+          {
+            "amount": "39.00",
+            "type": "CHECKED_BAGS"
+          }
+        ]
+      },
+      "pricingOptions": {
+        "fareType": ["PUBLISHED"],
+        "includedCheckedBagsOnly": false
+      },
+      "validatingAirlineCodes": ["TP"],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "EUR",
+            "total": "118.01",
+            "base": "31.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "3",
+              "cabin": "ECONOMY",
+              "fareBasis": "T15DSC0B",
+              "brandedFare": "DISCOUNT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 0
+              }
+            },
+            {
+              "segmentId": "4",
+              "cabin": "ECONOMY",
+              "fareBasis": "T04DSC0A",
+              "brandedFare": "DISCOUNT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "7",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2022-05-14",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT8H40M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "BER",
+                "terminal": "1",
+                "at": "2022-05-30T13:10:00"
+              },
+              "arrival": {
+                "iataCode": "LIS",
+                "terminal": "1",
+                "at": "2022-05-30T15:45:00"
+              },
+              "carrierCode": "TP",
+              "number": "533",
+              "aircraft": {
+                "code": "320"
+              },
+              "operating": {
+                "carrierCode": "TP"
+              },
+              "duration": "PT3H35M",
+              "id": "12",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LIS",
+                "terminal": "1",
+                "at": "2022-05-30T19:00:00"
+              },
+              "arrival": {
+                "iataCode": "BCN",
+                "terminal": "1",
+                "at": "2022-05-30T21:50:00"
+              },
+              "carrierCode": "TP",
+              "number": "1038",
+              "aircraft": {
+                "code": "E95"
+              },
+              "operating": {
+                "carrierCode": "NI"
+              },
+              "duration": "PT1H50M",
+              "id": "13",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "118.01",
+        "base": "31.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "118.01",
+        "additionalServices": [
+          {
+            "amount": "39.00",
+            "type": "CHECKED_BAGS"
+          }
+        ]
+      },
+      "pricingOptions": {
+        "fareType": ["PUBLISHED"],
+        "includedCheckedBagsOnly": false
+      },
+      "validatingAirlineCodes": ["TP"],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "EUR",
+            "total": "118.01",
+            "base": "31.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "12",
+              "cabin": "ECONOMY",
+              "fareBasis": "T15DSC0B",
+              "brandedFare": "DISCOUNT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 0
+              }
+            },
+            {
+              "segmentId": "13",
+              "cabin": "ECONOMY",
+              "fareBasis": "T04DSC0A",
+              "brandedFare": "DISCOUNT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "8",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2022-05-14",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT10H55M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "BER",
+                "terminal": "1",
+                "at": "2022-05-30T06:00:00"
+              },
+              "arrival": {
+                "iataCode": "LIS",
+                "terminal": "1",
+                "at": "2022-05-30T08:55:00"
+              },
+              "carrierCode": "TP",
+              "number": "531",
+              "aircraft": {
+                "code": "E95"
+              },
+              "operating": {
+                "carrierCode": "NI"
+              },
+              "duration": "PT3H55M",
+              "id": "16",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LIS",
+                "terminal": "1",
+                "at": "2022-05-30T14:05:00"
+              },
+              "arrival": {
+                "iataCode": "BCN",
+                "terminal": "1",
+                "at": "2022-05-30T16:55:00"
+              },
+              "carrierCode": "TP",
+              "number": "1042",
+              "aircraft": {
+                "code": "32N"
+              },
+              "operating": {
+                "carrierCode": "TP"
+              },
+              "duration": "PT1H50M",
+              "id": "17",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "118.01",
+        "base": "31.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "118.01",
+        "additionalServices": [
+          {
+            "amount": "39.00",
+            "type": "CHECKED_BAGS"
+          }
+        ]
+      },
+      "pricingOptions": {
+        "fareType": ["PUBLISHED"],
+        "includedCheckedBagsOnly": false
+      },
+      "validatingAirlineCodes": ["TP"],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "EUR",
+            "total": "118.01",
+            "base": "31.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "16",
+              "cabin": "ECONOMY",
+              "fareBasis": "T15DSC0B",
+              "brandedFare": "DISCOUNT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 0
+              }
+            },
+            {
+              "segmentId": "17",
+              "cabin": "ECONOMY",
+              "fareBasis": "T04DSC0A",
+              "brandedFare": "DISCOUNT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "9",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2022-05-14",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT12H20M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "BER",
+                "terminal": "1",
+                "at": "2022-05-30T13:10:00"
+              },
+              "arrival": {
+                "iataCode": "LIS",
+                "terminal": "1",
+                "at": "2022-05-30T15:45:00"
+              },
+              "carrierCode": "TP",
+              "number": "533",
+              "aircraft": {
+                "code": "320"
+              },
+              "operating": {
+                "carrierCode": "TP"
+              },
+              "duration": "PT3H35M",
+              "id": "5",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LIS",
+                "terminal": "1",
+                "at": "2022-05-30T22:40:00"
+              },
+              "arrival": {
+                "iataCode": "BCN",
+                "terminal": "1",
+                "at": "2022-05-31T01:30:00"
+              },
+              "carrierCode": "TP",
+              "number": "1032",
+              "aircraft": {
+                "code": "320"
+              },
+              "operating": {
+                "carrierCode": "TP"
+              },
+              "duration": "PT1H50M",
+              "id": "6",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "118.01",
+        "base": "31.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "118.01",
+        "additionalServices": [
+          {
+            "amount": "39.00",
+            "type": "CHECKED_BAGS"
+          }
+        ]
+      },
+      "pricingOptions": {
+        "fareType": ["PUBLISHED"],
+        "includedCheckedBagsOnly": false
+      },
+      "validatingAirlineCodes": ["TP"],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "EUR",
+            "total": "118.01",
+            "base": "31.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "5",
+              "cabin": "ECONOMY",
+              "fareBasis": "T15DSC0B",
+              "brandedFare": "DISCOUNT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 0
+              }
+            },
+            {
+              "segmentId": "6",
+              "cabin": "ECONOMY",
+              "fareBasis": "T04DSC0A",
+              "brandedFare": "DISCOUNT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "10",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2022-05-14",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT13H20M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "BER",
+                "terminal": "1",
+                "at": "2022-05-30T06:00:00"
+              },
+              "arrival": {
+                "iataCode": "LIS",
+                "terminal": "1",
+                "at": "2022-05-30T08:55:00"
+              },
+              "carrierCode": "TP",
+              "number": "531",
+              "aircraft": {
+                "code": "E95"
+              },
+              "operating": {
+                "carrierCode": "NI"
+              },
+              "duration": "PT3H55M",
+              "id": "7",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LIS",
+                "terminal": "1",
+                "at": "2022-05-30T16:30:00"
+              },
+              "arrival": {
+                "iataCode": "BCN",
+                "terminal": "1",
+                "at": "2022-05-30T19:20:00"
+              },
+              "carrierCode": "TP",
+              "number": "1036",
+              "aircraft": {
+                "code": "320"
+              },
+              "operating": {
+                "carrierCode": "TP"
+              },
+              "duration": "PT1H50M",
+              "id": "8",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "118.01",
+        "base": "31.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "118.01",
+        "additionalServices": [
+          {
+            "amount": "39.00",
+            "type": "CHECKED_BAGS"
+          }
+        ]
+      },
+      "pricingOptions": {
+        "fareType": ["PUBLISHED"],
+        "includedCheckedBagsOnly": false
+      },
+      "validatingAirlineCodes": ["TP"],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "EUR",
+            "total": "118.01",
+            "base": "31.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "7",
+              "cabin": "ECONOMY",
+              "fareBasis": "T15DSC0B",
+              "brandedFare": "DISCOUNT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 0
+              }
+            },
+            {
+              "segmentId": "8",
+              "cabin": "ECONOMY",
+              "fareBasis": "T04DSC0A",
+              "brandedFare": "DISCOUNT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

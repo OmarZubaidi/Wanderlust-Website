@@ -25,13 +25,3 @@ export const AppWrapper: NextPage<Props> = ({
     </Auth0Provider>
   );
 };
-
-// export const getStaticProps = () => {
-//   console.log('HERE');
-//   return {
-//     props: {
-//       domain_env: process.env.REACT_APP_DOMAIN,
-//       clientId_env: process.env.REACT_APP_CLIENT_ID,
-//     },
-//   };
-// };

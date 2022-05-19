@@ -3,6 +3,8 @@ import { useUserContext } from '../../context/userContext';
 import { TripProps } from '../../types/tripProp';
 import styles from '../../styles/dashboard/hotelOverview.module.scss';
 import Link from 'next/link';
+import { Hotel } from '../../types/hotel.type';
+import { HotelCard } from './hotels/HotelCard';
 
 export const HotelOverView: React.FC<TripProps> = ({ trip }) => {
   const { userDb, isFetching } = useUserContext();
@@ -27,12 +29,12 @@ export const HotelOverView: React.FC<TripProps> = ({ trip }) => {
     <section className={styles.container}>
       {bookHotel}
       <div>
-        <h2>Group hotels</h2>
+        <h2 className={styles.groupTitle}>Group hotels</h2>
         <p>Here you can see all the hotels of the group:</p>
-        <ul className={styles.flightList}>
-          {/* {trip.Flights?.map((flight) => (
-            <FlightCard key={flight.id} flight={flight} />
-          ))} */}
+        <ul className={styles.hotelList}>
+          {trip.Hotels?.map((hotel: Hotel) => (
+            <HotelCard key={hotel.id} hotel={hotel} />
+          ))}
         </ul>
       </div>
     </section>

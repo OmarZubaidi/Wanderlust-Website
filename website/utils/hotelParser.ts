@@ -2,7 +2,9 @@ import { Hotel } from '../types/hotel.type';
 import { Trip } from '../types/trip.type';
 
 export const hotelParser = (hotels: any[], trip: Trip): Hotel[] => {
-  const nights = new Date(trip.end).getDate() - new Date(trip.start).getDate();
+  const endDate = new Date(trip.end);
+  const startDate = new Date(trip.start);
+  const nights = Math.floor((+endDate - +startDate) / (24 * 60 * 60 * 1000));
   return hotels.map((hotel) => {
     const price = hotel.offers[0].price;
 
@@ -16,9 +18,9 @@ export const hotelParser = (hotels: any[], trip: Trip): Hotel[] => {
       departure: trip.end,
       arrival: trip.start,
       description: hotel.hotel.description?.text || '',
-      priceTotal: Math.round(total) * nights + price.currency,
+      priceTotal: Math.round(total) * nights,
       hotelApiId: hotel.hotel.hotelId,
-      rating: hotel.hotel.rating,
+      rating: hotel.hotel.rating || '0',
       type: hotel.hotel.type,
     };
   });

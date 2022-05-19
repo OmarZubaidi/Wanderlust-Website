@@ -1,5 +1,15 @@
 const path = require('path');
 /** @type {import('next').NextConfig} */
+const withTM = require('next-transpile-modules')([
+  '@fullcalendar/common',
+  '@babel/preset-react',
+  '@fullcalendar/common',
+  '@fullcalendar/daygrid',
+  '@fullcalendar/interaction',
+  '@fullcalendar/react',
+  '@fullcalendar/timegrid',
+]);
+
 const nextConfig = {
   reactStrictMode: true,
   sassOptions: {
@@ -11,7 +21,9 @@ const nextConfig = {
     SERVER_URL: process.env.REACT_APP_SERVER_URL,
     AMADEUS_API_KEY: process.env.REACT_APP_AMADEUS_API_KEY,
     AMADEUS_API_SECRET: process.env.REACT_APP_AMADEUS_API_SECRET,
+    WEATHER_API_KEY: process.env.REACT_APP_WEATHER_API_KEY,
+    WEATHER_URL: process.env.REACT_APP_WEATHER_URL,
   },
 };
 
-module.exports = nextConfig;
+module.exports = withTM(nextConfig);

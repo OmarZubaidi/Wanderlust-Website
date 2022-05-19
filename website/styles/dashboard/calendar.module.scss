@@ -1,0 +1,15 @@
+@import '../variables';
+
+.container {
+  padding: 20px;
+  max-height: 600px;
+  position: relative;
+}
+
+.randomButton {
+  display: block;
+  background-color: $mainPink;
+  position: absolute;
+  right: 20px;
+  top: -47px;
+}

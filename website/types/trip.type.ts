@@ -13,4 +13,6 @@ export interface Trip {
   Events?: EventType[]; // ts didn't like Event as a name
   Users?: User[];
   createdAt?: Date;
+  latitude: number;
+  longitude: number;
 }

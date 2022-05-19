@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from '../styles/Navbar.module.scss';
 import Link from 'next/link';
 import { useAuth0 } from '@auth0/auth0-react';
+import Image from 'next/image';
 
 export const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -14,6 +15,12 @@ export const Navbar: React.FC = () => {
     <div className={styles.navbar_container}>
       <nav className={styles.navbar}>
         <h1 className={styles.logo}>
+          <Image
+            className={styles.logoImg}
+            src={'/assets/Logo.png'}
+            width={30}
+            height={40}
+          />
           <Link href={'/'}>
             <a>Wanderlust</a>
           </Link>
@@ -21,15 +28,23 @@ export const Navbar: React.FC = () => {
         {user ? (
           <div className='buttons'>
             <div className={`avatar_dropdown ${show}`}>
-              <Link href={'/'}>
-                <a>Account</a>
+              <Link href={'/dashboard'}>
+                <a className='linkDropdown' onClick={() => setOpen(false)}>
+                  Trips
+                </a>
+              </Link>
+              <Link href={'/account'}>
+                <a className='linkDropdown' onClick={() => setOpen(false)}>
+                  Account
+                </a>
               </Link>
               <a
                 id='logout_button'
                 className={styles.logout}
                 onClick={() => logout({ returnTo: 'http://localhost:3000' })}
               >
-                Logout
+                <span>Logout</span>
+                <Image src={'/assets/logout.svg'} width={20} height={20} />
               </a>
             </div>
             <button
@@ -37,6 +52,7 @@ export const Navbar: React.FC = () => {
               className='avatar'
               style={{
                 background: `url(${user?.picture})`,
+                // background: `url(https://avatars.githubusercontent.com/u/84531855?v=4)`,
                 backgroundSize: 'contain',
               }}
             ></button>

@@ -25,7 +25,6 @@ export const FlightCard: React.FC<Props> = ({ flight }) => {
     <li className={styles.flightCard}>
       <div className={styles.flightInfo}>
         <h2>{flight.departureCity}</h2>
-        <div className={styles.line}></div>
         <h2>{flight.arrivalCity}</h2>
       </div>
       <div className={styles.segments}>
@@ -36,7 +35,9 @@ export const FlightCard: React.FC<Props> = ({ flight }) => {
               <h3>{segment.depAirport}</h3>
             </div>
             <div className={styles.line}></div>
-            <Image src={'/assets/Plane.svg'} width={100} height={100} />
+            <div className={styles.plane}>
+              <Image src={'/assets/Plane.svg'} width={30} height={30} />
+            </div>
             <div className={styles.line}></div>
             <div className={styles.infoSegment}>
               <h2>{format(new Date(segment.arrival), 'HH:mm')}</h2>

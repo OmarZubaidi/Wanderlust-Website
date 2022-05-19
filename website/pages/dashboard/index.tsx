@@ -10,7 +10,6 @@ const Dashboard = () => {
   const router = useRouter();
 
   if (isFetching) return <Loading />;
-
   if (userDb?.Trips?.length) {
     const tripId = userDb?.Trips[0].id;
     router.push(`/dashboard/map/${tripId}`);

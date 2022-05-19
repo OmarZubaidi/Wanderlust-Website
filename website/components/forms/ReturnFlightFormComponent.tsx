@@ -7,7 +7,7 @@ import { TripProps } from '../../types/tripProp';
 import { flightOffersSearch } from '../../utils/amadeus';
 import { citycode } from '../../utils/citycodes';
 import { parseFlights } from '../../utils/flightParser';
-import { cacheFlight, getCachedFlight } from '../../utils/localStorage';
+import { getCachedFlight } from '../../utils/localStorage';
 import { FlightBookingList } from './flightFormComponents/FlightBookingList';
 import { FlightFormHeader } from './flightFormComponents/FlightFormHeader';
 import { FlightInputHeader } from './flightFormComponents/FlightInputHeader';
@@ -15,11 +15,8 @@ import { useUserContext } from '../../context/userContext';
 import {
   bookGroupFlights,
   createFlightAndConnection,
+  createFlightEvent,
 } from '../../utils/flightsUtils';
-import {
-  createFlight,
-  createUsersFlightTripsConnection,
-} from '../../services/dbService';
 
 export const ReturnFlightFormComponent: React.FC<TripProps> = ({ trip }) => {
   const router = useRouter();
@@ -70,7 +67,12 @@ export const ReturnFlightFormComponent: React.FC<TripProps> = ({ trip }) => {
         userDb!.id!
       ))
     ) {
-      await createFlightAndConnection(startFlight, userDb!.id!, trip.id!);
+      const departureFlight = await createFlightAndConnection(
+        startFlight,
+        userDb!.id!,
+        trip.id!
+      );
+      await createFlightEvent(departureFlight, 'Departure flight', trip.id!);
     }
 
     if (
@@ -81,7 +83,12 @@ export const ReturnFlightFormComponent: React.FC<TripProps> = ({ trip }) => {
         userDb!.id!
       ))
     ) {
-      await createFlightAndConnection(selectedFlight!, userDb!.id!, trip.id!);
+      const returnFlight = await createFlightAndConnection(
+        selectedFlight!,
+        userDb!.id!,
+        trip.id!
+      );
+      await createFlightEvent(returnFlight, 'Return flight', trip.id!);
     }
     router.push(`/dashboard/flight/${trip.id}`);
   };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../../styles/forms/departureFlightForm.module.scss';
 import { TripProps } from '../../types/tripProp';
 import { flightOffersSearch } from '../../utils/amadeus';

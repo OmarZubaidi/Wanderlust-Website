@@ -59,3 +59,21 @@ export const userServiceGetById = async (
     return error.message;
   }
 };
+
+export const userServiceUpdateById = async (id: string, data: any) => {
+  try {
+    const res = await fetch(serverUrl + `/users/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    const user = await res.json();
+    if (user.status === 404) throw new Error(user.message);
+    return user as User;
+  } catch (error: any) {
+    console.log(error.message);
+    return error.message;
+  }
+}
