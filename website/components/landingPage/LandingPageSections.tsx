@@ -11,10 +11,12 @@ export const LandingPageSections: React.FC = () => {
         <article className={styles.section_text}>
           <h2 className='titleH2'>Discover your Wanderlust</h2>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut autem
-            ab saepe molestiae magnam blanditiis facere qui eum distinctio fugit
-            dolorum quaerat enim, maiores culpa commodi, necessitatibus earum.
-            Esse, fugit?
+            A trip-planning application that will accompany you through your
+            many travels. You pick your dates and location and the trip is ready
+            to be planned. Add your friends to the group so you can all see and
+            book flights and hotels. Wanderlust then gives you the points of
+            interest and restaurants to visit, which you can rearrange to your
+            heart's content.
           </p>
           <div className={styles.sign_buttons}>
             <button
@@ -42,10 +44,11 @@ export const LandingPageSections: React.FC = () => {
         <article className={styles.section_text}>
           <h2 className='titleH2'>Download the companion app</h2>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo saepe
-            nulla, qui inventore blanditiis illo perspiciatis ex at quo, facilis
-            sint incidunt molestias voluptas quia fugit repellendus maxime,
-            dolorum natus!
+            When it's time to travel, the companion app is your best friend.
+            You'll have access to the calendar of the itinerary as well as a map
+            showing all the locations. You'll also be able to see all flights
+            and hotels you've booked. If you select something coming up in the
+            calendar, it will give you directions to it.
           </p>
           <div className={styles.store_buttons}>
             <div className={styles.store_button}>

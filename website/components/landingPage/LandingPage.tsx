@@ -4,7 +4,7 @@ import { LandingPageSections } from './LandingPageSections';
 
 export const LandingPage: React.FC = () => {
   return (
-    <main>
+    <main className='landingContainer'>
       <LandingPageHeader />
       <LandingPageSections />
     </main>

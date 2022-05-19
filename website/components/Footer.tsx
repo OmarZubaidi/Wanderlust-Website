@@ -10,7 +10,7 @@ export const Footer: React.FC<FooterProps> = ({ logged }) => {
 
   return (
     <div className={styles.footer_container}>
-      <footer className={styles.footer + ' ' + footerPosition}>
+      <footer className={styles.footer + ' ' + 'footerPosition'}>
         <h2 className={styles.footer_title}>Wanderlust ©2022</h2>
         <ul className={styles.footer_links}>
           <li>
