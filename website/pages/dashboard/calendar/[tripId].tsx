@@ -41,8 +41,8 @@ const DashboardCalendar: React.FC<CalendarProps> = ({ trip, allEvents }) => {
   );
 };
 
-export const getStaticPaths = getStaticTripPaths;
-export const getStaticProps = async ({ params }: any) => {
+// export const getStaticPaths = getStaticTripPaths;
+export const getServerSideProps = async ({ params }: any) => {
   const id = params.tripId;
   const trip = await getTrip(+id);
   const amadeusEvents = await getAmadeusEvents(trip.latitude, trip.longitude);
