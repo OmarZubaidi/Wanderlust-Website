@@ -23,6 +23,7 @@ const nextConfig = {
     AMADEUS_API_SECRET: process.env.REACT_APP_AMADEUS_API_SECRET,
     WEATHER_API_KEY: process.env.REACT_APP_WEATHER_API_KEY,
     WEATHER_URL: process.env.REACT_APP_WEATHER_URL,
+    HOSTING_URL: process.env.REACT_APP_HOSTING_URL,
   },
 };
 

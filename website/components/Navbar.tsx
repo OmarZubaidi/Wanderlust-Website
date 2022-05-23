@@ -10,7 +10,7 @@ export const Navbar: React.FC = () => {
   const show = open ? 'show' : undefined;
 
   if (isLoading) return <></>;
-
+  
   return (
     <div className={styles.navbar_container}>
       <nav className={styles.navbar}>
@@ -41,7 +41,7 @@ export const Navbar: React.FC = () => {
               <a
                 id='logout_button'
                 className={styles.logout}
-                onClick={() => logout({ returnTo: 'http://localhost:3000' })}
+                onClick={() => logout({ returnTo: process.env.HOSTING_URL })}
               >
                 <span>Logout</span>
                 <Image src={'/assets/logout.svg'} width={20} height={20} />
