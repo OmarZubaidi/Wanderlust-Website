@@ -1,16 +1,14 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { DashboardComponent } from '../../../components/dashboard/DashboardComponent';
 import { Loading } from '../../../components/Loading';
-import { getEvents, getTrip } from '../../../services/dbService';
+import { getTrip } from '../../../services/dbService';
 import dynamic from 'next/dynamic';
 import { useUserContext } from '../../../context/userContext';
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { TripNavigation } from '../../../components/dashboard/TripNavigation';
-import { getStaticTripPaths } from '../../../utils/getStatic';
 import { TripProps } from '../../../types/tripProp';
 import { EventType } from '../../../types/event.type';
-import { Trip } from '../../../types/trip.type';
 
 const DynamicMap = dynamic(() => import('../../../components/dashboard/Map'), {
   ssr: false,
@@ -39,8 +37,7 @@ const DashboardMap: React.FC<Props> = ({ trip, events }) => {
   );
 };
 
-export const getStaticPaths = getStaticTripPaths;
-export const getStaticProps = async ({ params }: any) => {
+export const getServerSideProps = async ({ params }: any) => {
   const id = params.tripId;
   const trip = await getTrip(+id);
   return {
@@ -50,5 +47,4 @@ export const getStaticProps = async ({ params }: any) => {
     },
   };
 };
-
 export default DashboardMap;

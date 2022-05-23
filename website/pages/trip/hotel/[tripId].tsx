@@ -3,10 +3,7 @@ import React from 'react';
 import { HotelFormComponent } from '../../../components/forms/HotelFormComponents';
 import { Loading } from '../../../components/Loading';
 import { TripProps } from '../../../types/tripProp';
-import {
-  getStaticTripPaths,
-  getStaticTripProps,
-} from '../../../utils/getStatic';
+import { getServerSideTrip } from '../../../utils/serverSide';
 
 const HotelsForm: React.FC<TripProps> = ({ trip }) => {
   const { isLoading } = useAuth0();
@@ -18,7 +15,7 @@ const HotelsForm: React.FC<TripProps> = ({ trip }) => {
     </main>
   );
 };
-export const getStaticPaths = getStaticTripPaths;
-export const getStaticProps = getStaticTripProps;
+
+export const getServerSideProps = getServerSideTrip;
 
 export default HotelsForm;
