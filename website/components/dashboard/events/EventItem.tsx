@@ -46,6 +46,7 @@ export const EventItem: React.FC<EventItemProps> = ({
       <p>{e.description.slice(0, 100) + '...'}</p>
       <div className={styles.eventFooter}>
         <a
+          rel='noreferrer'
           target='_blank'
           href={`${e.bookingLink}`}
           className={'button ' + styles.book}

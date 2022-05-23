@@ -2,8 +2,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 import React from 'react';
 import { ReturnFlightFormComponent } from '../../../../components/forms/ReturnFlightFormComponent';
 import { Loading } from '../../../../components/Loading';
-import { getAllTrips, getTrip } from '../../../../services/dbService';
 import { TripProps } from '../../../../types/tripProp';
+import { getServerSideTrip } from '../../../../utils/serverSide';
 
 const ReturnFlightForm: React.FC<TripProps> = ({ trip }) => {
   const { isLoading } = useAuth0();
@@ -16,26 +16,6 @@ const ReturnFlightForm: React.FC<TripProps> = ({ trip }) => {
   );
 };
 
-export const getStaticPaths = async () => {
-  const trips = await getAllTrips();
-  const paths = trips.map((trip) => ({
-    params: { tripId: trip.id?.toString() },
-  }));
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps = async ({ params }: any) => {
-  const id = params.tripId;
-  const trip = await getTrip(+id);
-
-  return {
-    props: {
-      trip,
-    },
-  };
-};
+export const getServerSideProps = getServerSideTrip;
 
 export default ReturnFlightForm;

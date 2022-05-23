@@ -6,10 +6,7 @@ import { TripNavigation } from '../../../components/dashboard/TripNavigation';
 import { Loading } from '../../../components/Loading';
 import { useUserContext } from '../../../context/userContext';
 import { TripProps } from '../../../types/tripProp';
-import {
-  getStaticTripPaths,
-  getStaticTripProps,
-} from '../../../utils/getStatic';
+import { getServerSideTrip } from '../../../utils/serverSide';
 
 const DashboardHotel: React.FC<TripProps> = ({ trip }) => {
   const { isLoading } = useAuth0();
@@ -27,7 +24,6 @@ const DashboardHotel: React.FC<TripProps> = ({ trip }) => {
   );
 };
 
-export const getStaticPaths = getStaticTripPaths;
-export const getStaticProps = getStaticTripProps;
+export const getServerSideProps = getServerSideTrip;
 
 export default DashboardHotel;

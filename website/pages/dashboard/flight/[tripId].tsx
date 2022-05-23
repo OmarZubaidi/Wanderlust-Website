@@ -1,15 +1,12 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { DashboardComponent } from '../../../components/dashboard/DashboardComponent';
 import { Loading } from '../../../components/Loading';
 import { useUserContext } from '../../../context/userContext';
 import { TripNavigation } from '../../../components/dashboard/TripNavigation';
 import { FlightOverView } from '../../../components/dashboard/FlightOverView';
-import {
-  getStaticTripPaths,
-  getStaticTripProps,
-} from '../../../utils/getStatic';
 import { TripProps } from '../../../types/tripProp';
+import { getServerSideTrip } from '../../../utils/serverSide';
 
 const DashboardMap: React.FC<TripProps> = ({ trip }) => {
   const { isLoading } = useAuth0();
@@ -29,7 +26,6 @@ const DashboardMap: React.FC<TripProps> = ({ trip }) => {
   );
 };
 
-export const getStaticPaths = getStaticTripPaths;
-export const getStaticProps = getStaticTripProps;
+export const getServerSideProps = getServerSideTrip;
 
 export default DashboardMap;

@@ -3,10 +3,7 @@ import React from 'react';
 import { DepartureFlightFormComponent } from '../../../components/forms/departureFlightFormComponent';
 import { Loading } from '../../../components/Loading';
 import { TripProps } from '../../../types/tripProp';
-import {
-  getStaticTripPaths,
-  getStaticTripProps,
-} from '../../../utils/getStatic';
+import { getServerSideTrip } from '../../../utils/serverSide';
 
 const FligthsForm: React.FC<TripProps> = ({ trip }) => {
   const { isLoading } = useAuth0();
@@ -19,7 +16,5 @@ const FligthsForm: React.FC<TripProps> = ({ trip }) => {
   );
 };
 
-export const getStaticPaths = getStaticTripPaths;
-export const getStaticProps = getStaticTripProps;
-
+export const getServerSideProps = getServerSideTrip;
 export default FligthsForm;
