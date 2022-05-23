@@ -49,8 +49,48 @@ const DashboardEvents: React.FC<EventsProps> = ({
   );
 };
 
-export const getStaticPaths = getStaticTripPaths;
-export const getStaticProps = async ({ params }: any) => {
+// export const getStaticPaths = getStaticTripPaths;
+// export const getStaticProps = async ({ params }: any) => {
+//   const id = params.tripId;
+//   const trip = await getTrip(+id);
+//   try {
+//     const amadeusEvents = await getAmadeusEvents(trip.latitude, trip.longitude);
+//     const events = eventParser(amadeusEvents);
+//     try {
+//       const amadeusRestaurants = await getAmadeusRestaurants(
+//         trip.latitude,
+//         trip.longitude
+//       );
+//       const restaurants = restaurantParser(amadeusRestaurants);
+//       return {
+//         props: {
+//           trip,
+//           events,
+//           restaurants,
+//         },
+//       };
+//     } catch (error) {
+//       return {
+//         props: {
+//           trip,
+//           events,
+//           restaurants: [],
+//         },
+//       };
+//     }
+//   } catch (error) {
+//     console.log(error);
+//     return {
+//       props: {
+//         trip,
+//         events: [],
+//         restaurants: [],
+//       },
+//     };
+//   }
+// };
+
+export const getServerSideProps = async ({ params }: any) => {
   const id = params.tripId;
   const trip = await getTrip(+id);
   try {
