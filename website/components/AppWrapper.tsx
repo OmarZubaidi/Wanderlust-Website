@@ -19,7 +19,7 @@ export const AppWrapper: NextPage<Props> = ({
     <Auth0Provider
       domain={domain_env}
       clientId={clientId_env}
-      redirectUri={'http://localhost:3000'}
+      redirectUri={process.env.HOSTING_URL}
     >
       <Layout>{children}</Layout>
     </Auth0Provider>
